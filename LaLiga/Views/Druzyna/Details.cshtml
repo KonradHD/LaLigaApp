@@ -1,0 +1,36 @@
+@model LaLiga.Models.Druzyna
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Druzyna</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nazwa_druzyny)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nazwa_druzyny)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.punkty)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.punkty)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.gole)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.gole)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id_druzyny">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

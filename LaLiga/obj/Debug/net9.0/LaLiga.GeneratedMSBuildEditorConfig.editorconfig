@@ -1,0 +1,171 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = LaLiga
+build_property.RootNamespace = LaLiga
+build_property.ProjectDir = c:\Users\konra\OneDrive\Pulpit\Studia\Semestr4\pz2\projekt\LaLigaApp\LaLiga\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = c:\Users\konra\OneDrive\Pulpit\Studia\Semestr4\pz2\projekt\LaLigaApp\LaLiga
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Druzyna/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1enluYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Druzyna/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1enluYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Druzyna/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1enluYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Druzyna/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1enluYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Druzyna/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1enluYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Mecz/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjelxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Mecz/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjelxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Mecz/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjelxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Mecz/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjelxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Mecz/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjelxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Statystyki/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHlzdHlraVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Statystyki/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHlzdHlraVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Statystyki/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHlzdHlraVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Statystyki/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHlzdHlraVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Statystyki/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHlzdHlraVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Strzelec/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RyemVsZWNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Strzelec/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RyemVsZWNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Strzelec/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RyemVsZWNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Strzelec/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RyemVsZWNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Strzelec/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RyemVsZWNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Uzytkownik/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Uzytkownik/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Uzytkownik/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Uzytkownik/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Uzytkownik/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Zawodnik/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmF3b2RuaWtcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Zawodnik/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmF3b2RuaWtcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Zawodnik/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmF3b2RuaWtcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Zawodnik/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmF3b2RuaWtcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Zawodnik/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmF3b2RuaWtcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views

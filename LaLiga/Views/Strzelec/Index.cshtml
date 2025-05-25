@@ -1,0 +1,53 @@
+@model IEnumerable<LaLiga.Models.Strzelec>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.zawodnik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mecz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.asysty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.zawodnik.id_druzyny)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mecz.id_meczu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.asysty)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

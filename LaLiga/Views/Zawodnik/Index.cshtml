@@ -1,0 +1,65 @@
+@model IEnumerable<LaLiga.Models.Zawodnik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.druzyna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pozycja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wiek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wartosc_rynkowa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.druzyna.id_druzyny)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pozycja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wiek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wartosc_rynkowa)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
