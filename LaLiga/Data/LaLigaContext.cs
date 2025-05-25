@@ -71,11 +71,11 @@ namespace LaLiga.Data
         }
 
 
-        public DbSet<LaLiga.Models.Strzelec> Strzelec { get; set; } = default!;
-        public DbSet<LaLiga.Models.Druzyna> Druzyna { get; set; } = default!;
-        public DbSet<LaLiga.Models.Mecz> Mecz { get; set; } = default!;
-        public DbSet<LaLiga.Models.Statystyki> Statystyki { get; set; } = default!;
-        public DbSet<LaLiga.Models.Uzytkownik> Uzytkownik { get; set; } = default!;
-        public DbSet<LaLiga.Models.Zawodnik> Zawodnik { get; set; } = default!;
+        public DbSet<Strzelec> Strzelec { get; set; } = default!;
+        public DbSet<Druzyna> Druzyna { get; set; } = default!;
+        public DbSet<Mecz> Mecz { get; set; } = default!;
+        public DbSet<Statystyki> Statystyki { get; set; } = default!;
+        public DbSet<Uzytkownik> Uzytkownik { get; set; } = default!;
+        public DbSet<Zawodnik> Zawodnik { get; set; } = default!;
     }
 }

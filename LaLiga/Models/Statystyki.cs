@@ -8,7 +8,7 @@ namespace LaLiga.Models
     {
         [Key, ForeignKey("mecz")]
         public int id_meczu { get; set; }
-        public Mecz mecz { get; set; }
+        public Mecz? mecz { get; set; }
         [Display(Name = "Gole gospodarzy")]
         public int gole_gospodarzy { get; set; }
         [Display(Name = "Gole gości")]

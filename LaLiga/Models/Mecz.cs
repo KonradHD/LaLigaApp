@@ -9,10 +9,10 @@ namespace LaLiga.Models
         public int id_meczu { get; set; }
         public int id_gosci { get; set; }
         [Display(Name = "Goście")]
-        public Druzyna goscie { get; set; }
+        public Druzyna? goscie { get; set; }
         public int id_gospodarzy { get; set; }
         [Display(Name = "Gospodarze")]
-        public Druzyna gospodarze { get; set; }
+        public Druzyna? gospodarze { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Termin")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

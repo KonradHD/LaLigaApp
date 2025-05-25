@@ -8,9 +8,9 @@ namespace LaLiga.Models
         [Display(Name = "Numer")]
         public int numer { get; set; }
 
-        public Zawodnik zawodnik { get; set; }
+        public Zawodnik? zawodnik { get; set; }
         public int id_meczu { get; set; }
-        public Mecz mecz { get; set; }
+        public Mecz? mecz { get; set; }
         [Display(Name = "Gole")]
         public int? gole { get; set; }
         [Display(Name = "Asysty")]

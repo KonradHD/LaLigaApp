@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9vGVFmmjXVc=",
+  "dgSpecHash": "ja2oxMNPdeE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLiga\\LaLiga.csproj",
+  "projectFilePath": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\konra\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\konra\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -6,7 +6,7 @@ namespace LaLiga.Models
     {
         [Key]
         public int id_druzyny { get; set; }
-        public Druzyna druzyna { get; set; }
+        public Druzyna? druzyna { get; set; }
         [Display(Name = "Numer")]
         public int numer { get; set; }
         [Display(Name = "Imię")]

@@ -11,26 +11,26 @@
     <h4>Mecz</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.goscie)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.goscie.id_druzyny)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.goscie.nazwa_druzyny)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.gospodarze)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.gospodarze.id_druzyny)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.gospodarze.nazwa_druzyny)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.termin)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.termin)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="id_meczu" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
