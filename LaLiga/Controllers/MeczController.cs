@@ -82,6 +82,13 @@ namespace LaLiga.Controllers
         {
             string goscieId = form["id_gosci"].ToString();
             string gospodarzeId = form["id_gospodarzy"].ToString();
+            if (goscieId.Equals(gospodarzeId))
+            {
+                ModelState.AddModelError("id_gosci", "Drużyna gospodarzy i gości nie mogą być takie same.");
+                FillTeamsList("goście");
+                FillTeamsList("gospodarze");
+                return View();
+            }
             if (ModelState.IsValid)
             {
                 Druzyna? druzynaGosci = null;

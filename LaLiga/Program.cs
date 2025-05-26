@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using LaLiga.Data;
+using System.Globalization;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LaLigaContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("LaLigaContext") ?? throw new InvalidOperationException("Connection string 'LaLigaContext' not found.")));
@@ -9,6 +10,10 @@ builder.Services.AddDbContext<LaLigaContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+var cultureInfo = new CultureInfo("pl-PL");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 // Seed danych 
 using (var scope = app.Services.CreateScope())
@@ -42,7 +47,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Home}/{action=Index}/{id?}/{number?}")
     .WithStaticAssets();
 
 

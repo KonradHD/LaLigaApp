@@ -27,28 +27,37 @@ namespace LaLiga.Controllers
         }
 
         // GET: Zawodnik/Details/5
-        public async Task<IActionResult> Details(int? id)
+        [HttpGet("Zawodnik/Details/{id_druzyny}/{numer}")]
+        public async Task<IActionResult> Details(int? id_druzyny, int? numer)
         {
-            if (id == null)
+            if (id_druzyny == null || numer == null)
             {
                 return NotFound();
             }
 
             var zawodnik = await _context.Zawodnik
                 .Include(z => z.druzyna)
-                .FirstOrDefaultAsync(m => m.id_druzyny == id);
+                .FirstOrDefaultAsync(m => m.id_druzyny == id_druzyny && m.numer == numer);
             if (zawodnik == null)
             {
                 return NotFound();
             }
-
             return View(zawodnik);
+        }
+
+        protected void FillPlayerList(object? selectedTeam = null)
+        {
+            var Teams = from d in _context.Druzyna
+                        select d;
+            Teams = Teams.AsNoTracking();
+            ViewBag.id_druzyny = new SelectList(Teams, "id_druzyny", "nazwa_druzyny", selectedTeam);
         }
 
         // GET: Zawodnik/Create
         public IActionResult Create()
         {
-            ViewData["id_druzyny"] = new SelectList(_context.Druzyna, "id_druzyny", "id_druzyny");
+            FillPlayerList();
+            //ViewData["id_druzyny"] = new SelectList(_context.Druzyna, "id_druzyny", "id_druzyny");
             return View();
         }
 
@@ -57,32 +66,43 @@ namespace LaLiga.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_druzyny,numer,imie,nazwisko,pozycja,wiek,wartosc_rynkowa")] Zawodnik zawodnik)
+        public async Task<IActionResult> Create([Bind("id_druzyny,numer,imie,nazwisko,pozycja,wiek,wartosc_rynkowa")] Zawodnik zawodnik, IFormCollection form)
         {
+            string druzynaId = form["id_druzyny"].ToString();
             if (ModelState.IsValid)
             {
+                Druzyna? druzyna = null;
+                var druzyny = _context.Druzyna.Where(d => d.id_druzyny == int.Parse(druzynaId));
+                if (druzyny.Count() > 0)
+                {
+                    druzyna = druzyny.First();
+                }
+                zawodnik.druzyna = druzyna;
                 _context.Add(zawodnik);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_druzyny"] = new SelectList(_context.Druzyna, "id_druzyny", "id_druzyny", zawodnik.id_druzyny);
+            FillPlayerList(zawodnik.id_druzyny);
+            //ViewData["id_druzyny"] = new SelectList(_context.Druzyna, "id_druzyny", "id_druzyny", zawodnik.id_druzyny);
             return View(zawodnik);
         }
 
         // GET: Zawodnik/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet("Zawodnik/Edit/{id_druzyny}/{numer}")]
+        public async Task<IActionResult> Edit(int? id_druzyny, int? numer)
         {
-            if (id == null)
+            if (id_druzyny == null || numer == null)
             {
                 return NotFound();
             }
 
-            var zawodnik = await _context.Zawodnik.FindAsync(id);
+            var zawodnik = _context.Zawodnik.Where(z => z.id_druzyny == id_druzyny && z.numer == numer).Include(z => z.druzyna).First();
             if (zawodnik == null)
             {
                 return NotFound();
             }
-            ViewData["id_druzyny"] = new SelectList(_context.Druzyna, "id_druzyny", "id_druzyny", zawodnik.id_druzyny);
+            FillPlayerList(zawodnik.id_druzyny);
+            //ViewData["id_druzyny"] = new SelectList(_context.Druzyna, "id_druzyny", "id_druzyny", zawodnik.id_druzyny);
             return View(zawodnik);
         }
 
@@ -91,15 +111,16 @@ namespace LaLiga.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_druzyny,numer,imie,nazwisko,pozycja,wiek,wartosc_rynkowa")] Zawodnik zawodnik)
+        public async Task<IActionResult> Edit(int id_druzyny, int numer, [Bind("id_druzyny,numer,imie,nazwisko,pozycja,wiek,wartosc_rynkowa")] Zawodnik zawodnik)
         {
-            if (id != zawodnik.id_druzyny)
+            if (id_druzyny != zawodnik.id_druzyny || numer != zawodnik.numer)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
+
                 try
                 {
                     _context.Update(zawodnik);
@@ -107,7 +128,7 @@ namespace LaLiga.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ZawodnikExists(zawodnik.id_druzyny))
+                    if (!ZawodnikExists(zawodnik.id_druzyny, zawodnik.numer))
                     {
                         return NotFound();
                     }
@@ -118,21 +139,22 @@ namespace LaLiga.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_druzyny"] = new SelectList(_context.Druzyna, "id_druzyny", "id_druzyny", zawodnik.id_druzyny);
+            FillPlayerList(zawodnik.id_druzyny);
             return View(zawodnik);
         }
 
         // GET: Zawodnik/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpGet("Zawodnik/Delete/{id_druzyny}/{numer}")]
+        public async Task<IActionResult> Delete(int? id_druzyny, int? numer)
         {
-            if (id == null)
+            if (id_druzyny == null || numer == null)
             {
                 return NotFound();
             }
 
             var zawodnik = await _context.Zawodnik
                 .Include(z => z.druzyna)
-                .FirstOrDefaultAsync(m => m.id_druzyny == id);
+                .FirstOrDefaultAsync(m => m.id_druzyny == id_druzyny && m.numer == numer);
             if (zawodnik == null)
             {
                 return NotFound();
@@ -144,9 +166,9 @@ namespace LaLiga.Controllers
         // POST: Zawodnik/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id_druzyny, int numer)
         {
-            var zawodnik = await _context.Zawodnik.FindAsync(id);
+            var zawodnik = await _context.Zawodnik.FirstOrDefaultAsync(m => m.id_druzyny == id_druzyny && m.numer == numer);
             if (zawodnik != null)
             {
                 _context.Zawodnik.Remove(zawodnik);
@@ -156,9 +178,9 @@ namespace LaLiga.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ZawodnikExists(int id)
+        private bool ZawodnikExists(int id, int numer)
         {
-            return _context.Zawodnik.Any(e => e.id_druzyny == id);
+            return _context.Zawodnik.Any(e => e.id_druzyny == id && numer == e.numer);
         }
     }
 }

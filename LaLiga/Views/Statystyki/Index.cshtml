@@ -31,29 +31,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.mecz.id_meczu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gole_gospodarzy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gole_gosci)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.strzaly_gospodarzy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.strzaly_gosci)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_meczu">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_meczu">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_meczu">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @(item.mecz?.gospodarze?.nazwa_druzyny ?? "???") vs @(item.mecz?.goscie?.nazwa_druzyny ?? "???")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gole_gospodarzy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gole_gosci)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strzaly_gospodarzy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strzaly_gosci)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id_meczu">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id_meczu">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id_meczu">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

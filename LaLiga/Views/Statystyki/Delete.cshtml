@@ -11,38 +11,38 @@
     <h4>Statystyki</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.mecz)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mecz.id_meczu)
+        <dd class="col-sm-10">
+            @(Model.mecz?.gospodarze?.nazwa_druzyny ?? "???") vs @(Model.mecz?.goscie?.nazwa_druzyny ?? "???")
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.gole_gospodarzy)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.gole_gospodarzy)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.gole_gosci)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.gole_gosci)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.strzaly_gospodarzy)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.strzaly_gospodarzy)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.strzaly_gosci)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.strzaly_gosci)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="id_meczu" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

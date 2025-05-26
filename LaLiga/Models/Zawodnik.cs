@@ -19,6 +19,8 @@ namespace LaLiga.Models
         [Display(Name = "Wiek")]
         public int wiek { get; set; }
         [Display(Name = "Wartość rynkowa")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal wartosc_rynkowa { get; set; }
         public ICollection<Strzelec>? strzelcy { get; set; }
     }
