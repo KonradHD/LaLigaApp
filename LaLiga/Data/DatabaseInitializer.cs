@@ -47,6 +47,21 @@ namespace LaLiga.Data
                     new Zawodnik{}
                 };
             }
+
+            if (!context.Uzytkownik.Any())
+            {
+                Uzytkownik admin = new Uzytkownik
+                {
+                    email = "admin@gmail.com",
+                    haslo = "admin",
+                    imie = "Konrad",
+                    nazwisko = "Ćwięka",
+                    wiek = 21,
+                    data_dołączenia = DateTime.Now
+                };
+                context.Uzytkownik.Add(admin);
+                context.SaveChangesAsync();
+            }
         }
     }
 }

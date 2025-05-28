@@ -9,6 +9,17 @@ builder.Services.AddDbContext<LaLigaContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Dodanie obsługo sesji
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
+    options.Cookie.HttpOnly = true;//plik cookie jest niedostępny przez skrypt po stronie klienta
+    options.Cookie.IsEssential = true;//pliki cookie sesji będą zapisywane dzięki czemu sesje będzie mogła być śledzona podczas nawigacji lub przeładowania strony
+});
+//KONIEC
+
 var app = builder.Build();
 
 var cultureInfo = new CultureInfo("pl-PL");
@@ -44,6 +55,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

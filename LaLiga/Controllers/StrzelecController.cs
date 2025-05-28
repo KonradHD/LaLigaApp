@@ -22,22 +22,30 @@ namespace LaLiga.Controllers
         // GET: Strzelec
         public async Task<IActionResult> Index()
         {
-            var laLigaContext = _context.Strzelec.Include(s => s.mecz).Include(s => s.zawodnik);
+            var laLigaContext = _context.Strzelec
+                .Include(s => s.mecz)
+                    .ThenInclude(m => m.goscie)
+                .Include(s => s.mecz)
+                    .ThenInclude(m => m.gospodarze)
+                .Include(s => s.zawodnik);
             return View(await laLigaContext.ToListAsync());
         }
 
         // GET: Strzelec/Details/5
-        public async Task<IActionResult> Details(int? id)
+        [HttpGet("Strzelec/Details/{id_druzyny}/{numer}/{id_meczu}")]
+        public async Task<IActionResult> Details(int? id_druzyny, int? numer, int? id_meczu)
         {
-            if (id == null)
+            if (id_druzyny == null || id_meczu == null || numer == null)
             {
                 return NotFound();
             }
 
-            var strzelec = await _context.Strzelec
-                .Include(s => s.mecz)
-                .Include(s => s.zawodnik)
-                .FirstOrDefaultAsync(m => m.id_druzyny == id);
+            var strzelec = _context.Strzelec.Where(s => s.id_druzyny == id_druzyny && s.numer == numer && s.id_meczu == id_meczu)
+            .Include(s => s.mecz)
+                .ThenInclude(m => m.goscie)
+            .Include(s => s.mecz)
+                .ThenInclude(m => m.gospodarze)
+            .Include(s => s.zawodnik).First();
             if (strzelec == null)
             {
                 return NotFound();
@@ -46,11 +54,40 @@ namespace LaLiga.Controllers
             return View(strzelec);
         }
 
+        protected void FillMatchList(object? selectedMatch = null)
+        {
+            var selectedMatches = from m in _context.Mecz
+                                  join d_gosci in _context.Druzyna on m.id_gosci equals d_gosci.id_druzyny
+                                  join d_gosp in _context.Druzyna on m.id_gospodarzy equals d_gosp.id_druzyny
+                                  select new
+                                  {
+                                      id_meczu = m.id_meczu,
+                                      rywale = d_gosp.nazwa_druzyny + " vs " + d_gosci.nazwa_druzyny
+                                  };
+            var sel = selectedMatches.AsNoTracking();
+            ViewBag.id_meczu = new SelectList(sel, "id_meczu", "rywale", selectedMatch);
+        }
+
+        protected void FillPlayerList(object? selectedPlayerId = null, object? selectedPlayerNumber = null)
+        {
+            var selectedPlayers = from z in _context.Zawodnik
+                                  join d in _context.Druzyna on z.id_druzyny equals d.id_druzyny
+                                  select new
+                                  {
+                                      id_druzyny = z.id_druzyny,
+                                      numer = z.numer,
+                                      nazwa_druzyny = d.nazwa_druzyny
+                                  };
+            var Players = selectedPlayers.AsNoTracking();
+            ViewBag.id_druzyny = new SelectList(Players, "id_druzyny", "nazwa_druzyny", selectedPlayerId);
+            ViewBag.numer = new SelectList(Players, "numer", "numer", selectedPlayerNumber);
+        }
+
         // GET: Strzelec/Create
         public IActionResult Create()
         {
-            ViewData["id_meczu"] = new SelectList(_context.Mecz, "id_meczu", "id_meczu");
-            ViewData["id_druzyny"] = new SelectList(_context.Zawodnik, "id_druzyny", "id_druzyny");
+            FillMatchList();
+            FillPlayerList();
             return View();
         }
 
@@ -59,45 +96,83 @@ namespace LaLiga.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_druzyny,numer,id_meczu,gole,asysty")] Strzelec strzelec)
+        public async Task<IActionResult> Create([Bind("id_druzyny,numer,id_meczu,gole,asysty")] Strzelec strzelec, IFormCollection form)
         {
+            string druzynaId = form["id_druzyny"].ToString();
+            string meczId = form["id_meczu"].ToString();
+            string numer = form["numer"].ToString();
+
             if (ModelState.IsValid)
             {
+                Zawodnik? zawodnik = null;
+                var zawodnicy = _context.Zawodnik.Where(z => z.id_druzyny == int.Parse(druzynaId) && z.numer == int.Parse(numer));
+                if (zawodnicy.Count() > 0)
+                {
+                    zawodnik = zawodnicy.First();
+                }
+
+                Mecz? mecz = null;
+                var mecze = _context.Mecz.Where(m => m.id_meczu == int.Parse(meczId));
+                if (mecze.Count() > 0)
+                {
+                    mecz = mecze.First();
+                }
+
+                if (zawodnik.id_druzyny != mecz.id_gosci && zawodnik.id_druzyny != mecz.id_gospodarzy)
+                {
+                    ModelState.AddModelError("id_druzyny", "Zawodnik musi należeć do drużyny, która bierze udział w meczu.");
+                    FillMatchList();
+                    FillPlayerList();
+                    return View();
+                }
+
+                strzelec.mecz = mecz;
+                strzelec.zawodnik = zawodnik;
                 _context.Add(strzelec);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_meczu"] = new SelectList(_context.Mecz, "id_meczu", "id_meczu", strzelec.id_meczu);
-            ViewData["id_druzyny"] = new SelectList(_context.Zawodnik, "id_druzyny", "id_druzyny", strzelec.id_druzyny);
+            FillMatchList(strzelec.id_meczu);
+            FillPlayerList(strzelec.id_druzyny, strzelec.numer);
+            //ViewData["id_meczu"] = new SelectList(_context.Mecz, "id_meczu", "id_meczu", strzelec.id_meczu);
+            //ViewData["id_druzyny"] = new SelectList(_context.Zawodnik, "id_druzyny", "id_druzyny", strzelec.id_druzyny);
             return View(strzelec);
         }
 
         // GET: Strzelec/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet("Strzelec/Edit/{id_druzyny}/{numer}/{id_meczu}")]
+        public async Task<IActionResult> Edit(int? id_druzyny, int? numer, int? id_meczu)
         {
-            if (id == null)
+            if (id_druzyny == null || id_meczu == null || numer == null)
             {
                 return NotFound();
             }
 
-            var strzelec = await _context.Strzelec.FindAsync(id);
+            var strzelec = _context.Strzelec.Where(s => s.id_druzyny == id_druzyny && s.numer == numer && s.id_meczu == id_meczu)
+            .Include(s => s.mecz)
+                .ThenInclude(m => m.goscie)
+            .Include(s => s.mecz)
+                .ThenInclude(m => m.gospodarze)
+            .Include(s => s.zawodnik).First();
             if (strzelec == null)
             {
                 return NotFound();
             }
-            ViewData["id_meczu"] = new SelectList(_context.Mecz, "id_meczu", "id_meczu", strzelec.id_meczu);
-            ViewData["id_druzyny"] = new SelectList(_context.Zawodnik, "id_druzyny", "id_druzyny", strzelec.id_druzyny);
+            FillMatchList(strzelec.id_meczu);
+            FillPlayerList(strzelec.id_druzyny, strzelec.numer);
+            //ViewData["id_meczu"] = new SelectList(_context.Mecz, "id_meczu", "id_meczu", strzelec.id_meczu);
+            //ViewData["id_druzyny"] = new SelectList(_context.Zawodnik, "id_druzyny", "id_druzyny", strzelec.id_druzyny);
             return View(strzelec);
         }
 
         // POST: Strzelec/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("Strzelec/Edit/{id_druzyny:int}/{numer:int}/{id_meczu:int}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_druzyny,numer,id_meczu,gole,asysty")] Strzelec strzelec)
+        public async Task<IActionResult> Edit(int id_druzyny, int numer, int id_meczu, [Bind("id_druzyny,numer,id_meczu,gole,asysty")] Strzelec strzelec)
         {
-            if (id != strzelec.id_druzyny)
+            if (id_druzyny != strzelec.id_druzyny || id_meczu != strzelec.id_meczu || numer != strzelec.numer)
             {
                 return NotFound();
             }
@@ -111,7 +186,7 @@ namespace LaLiga.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StrzelecExists(strzelec.id_druzyny))
+                    if (!StrzelecExists(strzelec.id_druzyny, strzelec.numer, strzelec.id_meczu))
                     {
                         return NotFound();
                     }
@@ -122,23 +197,28 @@ namespace LaLiga.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["id_meczu"] = new SelectList(_context.Mecz, "id_meczu", "id_meczu", strzelec.id_meczu);
-            ViewData["id_druzyny"] = new SelectList(_context.Zawodnik, "id_druzyny", "id_druzyny", strzelec.id_druzyny);
+            FillMatchList(strzelec.id_meczu);
+            FillPlayerList(strzelec.id_druzyny, strzelec.numer);
+            //ViewData["id_meczu"] = new SelectList(_context.Mecz, "id_meczu", "id_meczu", strzelec.id_meczu);
+            //ViewData["id_druzyny"] = new SelectList(_context.Zawodnik, "id_druzyny", "id_druzyny", strzelec.id_druzyny);
             return View(strzelec);
         }
 
         // GET: Strzelec/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpGet("Strzelec/Delete/{id_druzyny}/{numer}/{id_meczu}")]
+        public async Task<IActionResult> Delete(int? id_druzyny, int? numer, int? id_meczu)
         {
-            if (id == null)
+            if (id_druzyny == null || id_meczu == null || numer == null)
             {
                 return NotFound();
             }
 
-            var strzelec = await _context.Strzelec
-                .Include(s => s.mecz)
-                .Include(s => s.zawodnik)
-                .FirstOrDefaultAsync(m => m.id_druzyny == id);
+            var strzelec = _context.Strzelec.Where(s => s.id_druzyny == id_druzyny && s.numer == numer && s.id_meczu == id_meczu)
+            .Include(s => s.mecz)
+                .ThenInclude(m => m.goscie)
+            .Include(s => s.mecz)
+                .ThenInclude(m => m.gospodarze)
+            .Include(s => s.zawodnik).First();
             if (strzelec == null)
             {
                 return NotFound();
@@ -150,9 +230,9 @@ namespace LaLiga.Controllers
         // POST: Strzelec/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id_druzyny, int numer, int id_meczu)
         {
-            var strzelec = await _context.Strzelec.FindAsync(id);
+            var strzelec = await _context.Strzelec.FirstOrDefaultAsync(s => s.id_druzyny == id_druzyny && s.numer == numer && s.id_meczu == id_meczu);
             if (strzelec != null)
             {
                 _context.Strzelec.Remove(strzelec);
@@ -162,9 +242,9 @@ namespace LaLiga.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StrzelecExists(int id)
+        private bool StrzelecExists(int id_druzyny, int numer, int id_meczu)
         {
-            return _context.Strzelec.Any(e => e.id_druzyny == id);
+            return _context.Strzelec.Any(s => s.id_druzyny == id_druzyny && s.numer == numer && s.id_meczu == id_meczu);
         }
     }
 }

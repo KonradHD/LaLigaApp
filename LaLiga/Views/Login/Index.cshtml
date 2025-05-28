@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Logowanie</h2>
+
+<form asp-action="LoginPage" method="post">
+    <div>
+        <label>Login:</label>
+        <input type="text" name="login" required />
+    </div>
+    <div>
+        <label>Hasło:</label>
+        <input type="password" name="password" required />
+    </div>
+    <button type="submit">Zaloguj</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red;">@ViewBag.Error</p>
+}

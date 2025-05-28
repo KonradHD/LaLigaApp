@@ -5,6 +5,7 @@ namespace LaLiga.Models
     public class Strzelec
     {
         public int id_druzyny { get; set; }
+
         [Display(Name = "Numer")]
         public int numer { get; set; }
 

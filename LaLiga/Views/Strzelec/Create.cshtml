@@ -14,15 +14,18 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="id_druzyny" class="control-label"></label>
-                <select asp-for="id_druzyny" class ="form-control" asp-items="ViewBag.id_druzyny"></select>
+                <select asp-for="id_druzyny" class="form-control" asp-items="ViewBag.id_druzyny"></select>
+                <span asp-validation-for="id_druzyny" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="numer" class="control-label"></label>
-                <select asp-for="numer" class ="form-control" asp-items="ViewBag.numer"></select>
+                <select asp-for="numer" class="form-control" asp-items="ViewBag.numer"></select>
+                <span asp-validation-for="numer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="id_meczu" class="control-label"></label>
-                <select asp-for="id_meczu" class ="form-control" asp-items="ViewBag.id_meczu"></select>
+                <label asp-for="mecz" class="control-label"></label>
+                <select asp-for="id_meczu" class="form-control" asp-items="ViewBag.id_meczu"></select>
+                <span asp-validation-for="id_meczu" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="gole" class="control-label"></label>
@@ -46,5 +49,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

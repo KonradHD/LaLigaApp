@@ -10,28 +10,28 @@
     <h4>Strzelec</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.zawodnik)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.zawodnik.id_druzyny)
+        <dd class="col-sm-10">
+            @(Model.zawodnik?.imie ?? "???") @(Model.zawodnik?.nazwisko ?? "???")
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.mecz)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mecz.id_meczu)
+        <dd class="col-sm-10">
+            @(Model.mecz?.gospodarze?.nazwa_druzyny ?? "???") vs @(Model.mecz?.goscie?.nazwa_druzyny ?? "???")
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.gole)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.gole)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.asysty)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.asysty)
         </dd>
     </dl>

@@ -28,26 +28,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.zawodnik.id_druzyny)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mecz.id_meczu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gole)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.asysty)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @(item.zawodnik?.imie ?? "???") @(item.zawodnik?.nazwisko ?? "???")
+                </td>
+                <td>
+                    @(item.mecz?.gospodarze?.nazwa_druzyny ?? "???") vs @(item.mecz?.goscie?.nazwa_druzyny ?? "???")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gole)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.asysty)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id_druzyny = item.id_druzyny, numer = item.numer, id_meczu =
+                    item.id_meczu }) |
+                @Html.ActionLink("Details", "Details", new { id_druzyny = item.id_druzyny, numer = item.numer, id_meczu
+                                = item.id_meczu}) |
+                @Html.ActionLink("Delete", "Delete", new { id_druzyny = item.id_druzyny, numer = item.numer, id_meczu =
+                                item.id_meczu })
             </td>
         </tr>
-}
+                }
     </tbody>
 </table>
