@@ -39,9 +39,14 @@
                 <span asp-validation-for="nazwisko" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="data_dołączenia" class="control-label"></label>
-                <input asp-for="data_dołączenia" class="form-control" />
-                <span asp-validation-for="data_dołączenia" class="text-danger"></span>
+                <label asp-for="data_dolaczenia" class="control-label"></label>
+                <input asp-for="data_dolaczenia" class="form-control" />
+                <span asp-validation-for="data_dolaczenia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rola" class="control-label"></label>
+                <input asp-for="rola" class="form-control" />
+                <span asp-validation-for="rola" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -55,5 +60,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -9,9 +9,11 @@ using LaLiga.Data;
 using LaLiga.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.CodeAnalysis.Scripting.Hosting;
+using LaLiga.Filters;
 
 namespace LaLiga.Controllers
 {
+    [RequireLogin]
     public class MeczController : Controller
     {
         private readonly LaLigaContext _context;

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LaLiga.Data;
 using LaLiga.Models;
+using LaLiga.Filters;
 
 namespace LaLiga.Controllers
 {
+    [RequireLogin]
     public class DruzynaController : Controller
     {
         private readonly LaLigaContext _context;
@@ -147,6 +149,13 @@ namespace LaLiga.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Winners()
+        {
+            var teams = _context.Druzyna.OrderByDescending(d => d.punkty).OrderByDescending(d => d.gole).Take(5).AsNoTracking();
+            return View(await teams.ToListAsync());
         }
 
         private bool DruzynaExists(int id)

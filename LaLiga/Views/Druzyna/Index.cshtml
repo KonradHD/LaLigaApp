@@ -8,6 +8,9 @@
 
 <p>
     <a asp-action="Create">Create New</a>
+<form asp-controller="Druzyna" asp-action="Winners" method="get">
+    <button type="submit">Wygrani</button>
+</form>
 </p>
 <table class="table">
     <thead>
@@ -25,23 +28,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nazwa_druzyny)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.punkty)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gole)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_druzyny">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_druzyny">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_druzyny">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazwa_druzyny)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.punkty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gole)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id_druzyny">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id_druzyny">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id_druzyny">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

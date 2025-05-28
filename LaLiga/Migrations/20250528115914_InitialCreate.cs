@@ -37,7 +37,8 @@ namespace LaLiga.Migrations
                     wiek = table.Column<int>(type: "INTEGER", nullable: false),
                     imie = table.Column<string>(type: "TEXT", nullable: false),
                     nazwisko = table.Column<string>(type: "TEXT", nullable: false),
-                    data_dołączenia = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    data_dolaczenia = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    rola = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

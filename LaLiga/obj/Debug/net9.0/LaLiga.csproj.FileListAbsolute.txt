@@ -729,3 +729,4 @@ C:\Users\konra\OneDrive\Pulpit\Studia\Semestr4\pz2\projekt\LaLigaApp\LaLiga\obj\
 C:\Users\konra\OneDrive\Pulpit\Studia\Semestr4\pz2\projekt\LaLigaApp\LaLiga\obj\Debug\net9.0\LaLiga.pdb
 C:\Users\konra\OneDrive\Pulpit\Studia\Semestr4\pz2\projekt\LaLigaApp\LaLiga\obj\Debug\net9.0\LaLiga.genruntimeconfig.cache
 C:\Users\konra\OneDrive\Pulpit\Studia\Semestr4\pz2\projekt\LaLigaApp\LaLiga\obj\Debug\net9.0\ref\LaLiga.dll
+C:\Users\konra\OneDrive\Pulpit\Studia\Semestr4\pz2\projekt\LaLigaApp\LaLiga\obj\Debug\net9.0\compressed\eznjyjtotk-d9at6ufzqu.gz

@@ -301,6 +301,304 @@
       ]
     },
     {
+      "Route": "css/league-table.css",
+      "AssetFile": "css/league-table.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002277904328"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+        }
+      ]
+    },
+    {
+      "Route": "css/league-table.css",
+      "AssetFile": "css/league-table.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1128"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+        }
+      ]
+    },
+    {
+      "Route": "css/league-table.css.gz",
+      "AssetFile": "css/league-table.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY="
+        }
+      ]
+    },
+    {
+      "Route": "css/league-table.d9at6ufzqu.css",
+      "AssetFile": "css/league-table.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002277904328"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d9at6ufzqu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/league-table.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/league-table.d9at6ufzqu.css",
+      "AssetFile": "css/league-table.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1128"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d9at6ufzqu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/league-table.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/league-table.d9at6ufzqu.css.gz",
+      "AssetFile": "css/league-table.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d9at6ufzqu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/league-table.css.gz"
+        }
+      ]
+    },
+    {
       "Route": "css/site.b9sayid5wm.css",
       "AssetFile": "css/site.css.gz",
       "Selectors": [

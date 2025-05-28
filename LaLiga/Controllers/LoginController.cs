@@ -19,12 +19,15 @@ namespace LaLiga.Controllers
         {
             _context = context;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Index(string? login, string? password)
+        [HttpPost]
+        public IActionResult Index(string login, string password)
         {
             string HashedPassword = HashHelper.HashMD5(password);
             var uzytkownicy = _context.Uzytkownik.Where(u => u.haslo.Equals(HashedPassword) && u.email.Equals(login)).AsNoTracking();
@@ -34,17 +37,19 @@ namespace LaLiga.Controllers
                 // Ustawienie sesji
                 HttpContext.Session.SetInt32("id", uzytkownik.id);
                 HttpContext.Session.SetString("Email", uzytkownik.email);
+                HttpContext.Session.SetString("role", uzytkownik.rola);
 
-                return RedirectToAction("Core"); // lub inna strona po zalogowaniu
+                return RedirectToAction("Core");
             }
             ViewBag.Error = "Nieprawidłowy login lub hasło";
             return View(nameof(Index)); // widok logowania z błędem
         }
 
 
+        [HttpGet]
         public IActionResult Core()
         {
-            if (HttpContext.Session.GetString("id") != null)
+            if (HttpContext.Session.GetString("id") == null)
             {
                 return RedirectToAction("Login");
             }
@@ -62,10 +67,11 @@ namespace LaLiga.Controllers
         }
 
 
+        [HttpPost]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
     }
 }

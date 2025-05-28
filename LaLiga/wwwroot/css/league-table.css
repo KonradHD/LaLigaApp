@@ -1,0 +1,60 @@
+body {
+    background-color: #0f1923;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.table-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.btn-create {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #1db954;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-create:hover {
+    background-color: #17a44a;
+}
+
+.league-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1c1f26;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.league-table thead {
+    background-color: #2e3039;
+    color: #ffffff;
+}
+
+.league-table th, .league-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.league-table tr:nth-child(even) {
+    background-color: #1a1d24;
+}
+
+.league-table tr:hover {
+    background-color: #2b2f3b;
+    transition: background-color 0.3s ease;
+}

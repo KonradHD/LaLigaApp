@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(LaLigaContext))]
-    [Migration("20250524213906_InitialCreate")]
+    [Migration("20250528115914_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -121,7 +121,7 @@ namespace LaLiga.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("data_dołączenia")
+                    b.Property<DateTime>("data_dolaczenia")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("email")
@@ -137,6 +137,10 @@ namespace LaLiga.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("nazwisko")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("rola")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

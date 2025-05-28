@@ -1,0 +1,38 @@
+@model IEnumerable<LaLiga.Models.Druzyna>
+
+@{
+    ViewData["Title"] = "Tabela Drużyn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/league-table.css" />
+
+<div class="table-container">
+    <h2>Tabela La Liga</h2>
+
+    <table class="league-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Drużyna</th>
+                <th>Punkty</th>
+                <th>Bramki</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.nazwa_druzyny</td>
+                        <td>@item.punkty</td>
+                        <td>@item.gole</td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
