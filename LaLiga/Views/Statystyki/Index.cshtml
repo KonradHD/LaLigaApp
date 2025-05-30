@@ -4,12 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
+<link rel="stylesheet" href="~/css/league-table.css" />
+
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="league-table">
     <thead>
         <tr>
             <th>
@@ -58,3 +60,7 @@
         }
     </tbody>
 </table>
+
+<div>
+    <a asp-controller="Login" asp-action="Core">Back to Core</a>
+</div>

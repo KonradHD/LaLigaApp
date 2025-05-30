@@ -18,7 +18,17 @@ namespace LaLiga.Filters
 
             if (string.IsNullOrEmpty(role) || role != _requiredRole)
             {
-                context.Result = new RedirectToActionResult("Index", "Login", null);
+                // Ustaw tymczasową wiadomość (TempData przetrwa przekierowanie)
+                context.HttpContext.Session.SetString("AccessDeniedMessage", "Brak dostępu do tej strony.");
+
+                // Pobierz poprzedni adres URL
+                var referer = context.HttpContext.Request.Headers["Referer"].ToString();
+                if (string.IsNullOrEmpty(referer))
+                {
+                    referer = "/"; // fallback
+                }
+
+                context.Result = new RedirectResult(referer);
             }
 
             base.OnActionExecuting(context);

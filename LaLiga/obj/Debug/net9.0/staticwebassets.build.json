@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a5Zjbk4e1QJX/aLEo8xAyiOvU5nZqBaeJSJRcdrPFsM=",
+  "Hash": "h1whq6LWMAEIT7SdXMpYP2z+Y6pysUa9WMqy/zWIAMQ=",
   "Source": "LaLiga",
   "BasePath": "_content/LaLiga",
   "Mode": "Default",
@@ -563,6 +563,27 @@
       "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
+      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\daktxycn8p-hg3auwtgo1.gz",
+      "SourceId": "LaLiga",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/LaLiga",
+      "RelativePath": "css/dashboard#[.{fingerprint=hg3auwtgo1}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\dashboard.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "zgk5xhfr92",
+      "Integrity": "40s6Jy7MIC01OBWxHrpsLX1NSgq50qLk4cdIUJonjd4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\dashboard.css"
+    },
+    {
       "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\e2cu3j5iok-47otxtyo56.gz",
       "SourceId": "LaLiga",
       "SourceType": "Discovered",
@@ -647,12 +668,12 @@
       "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-d9at6ufzqu.gz",
+      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-r9l78tytiy.gz",
       "SourceId": "LaLiga",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/LaLiga",
-      "RelativePath": "css/league-table#[.{fingerprint=d9at6ufzqu}]?.css.gz",
+      "RelativePath": "css/league-table#[.{fingerprint=r9l78tytiy}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -661,8 +682,8 @@
       "RelatedAsset": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\league-table.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "m2vu8qiukm",
-      "Integrity": "MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=",
+      "Fingerprint": "p96isyc6kn",
+      "Integrity": "w2uBvL4/sN2N2377Qni11WFerzOka47WxfTfAz/vTVU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\league-table.css"
@@ -771,6 +792,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\jsczhsjam2-mhwhb9q9oi.gz",
+      "SourceId": "LaLiga",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/LaLiga",
+      "RelativePath": "css/login#[.{fingerprint=mhwhb9q9oi}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\login.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "eu5a6sh305",
+      "Integrity": "FsIZqIv+Um9+DTVFYCGacTPp4FBaPfn6+Le0aTT04zQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\kraenb3xkl-356vix0kms.gz",
@@ -1382,6 +1424,27 @@
       "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
+      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\y0hju6wawn-4w90u5sal0.gz",
+      "SourceId": "LaLiga",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/LaLiga",
+      "RelativePath": "css/register#[.{fingerprint=4w90u5sal0}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\register.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "t8qbyj7muh",
+      "Integrity": "YygxVPbucSKbburLTPaYppcExv0T9Lb+bI9c99fi9A8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\register.css"
+    },
+    {
       "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\scopedcss\\bundle\\LaLiga.styles.css",
       "SourceId": "LaLiga",
       "SourceType": "Computed",
@@ -1424,6 +1487,27 @@
       "OriginalItemSpec": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\LaLiga.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\dashboard.css",
+      "SourceId": "LaLiga",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\",
+      "BasePath": "_content/LaLiga",
+      "RelativePath": "css/dashboard#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hg3auwtgo1",
+      "Integrity": "AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
+    },
+    {
       "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\league-table.css",
       "SourceId": "LaLiga",
       "SourceType": "Discovered",
@@ -1438,11 +1522,53 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "d9at6ufzqu",
-      "Integrity": "MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=",
+      "Fingerprint": "r9l78tytiy",
+      "Integrity": "b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\league-table.css"
+    },
+    {
+      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\login.css",
+      "SourceId": "LaLiga",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\",
+      "BasePath": "_content/LaLiga",
+      "RelativePath": "css/login#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mhwhb9q9oi",
+      "Integrity": "uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\register.css",
+      "SourceId": "LaLiga",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\",
+      "BasePath": "_content/LaLiga",
+      "RelativePath": "css/register#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4w90u5sal0",
+      "Integrity": "7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\register.css"
     },
     {
       "Identity": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\site.css",
@@ -2770,13 +2896,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/league-table.css",
-      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-d9at6ufzqu.gz",
+      "Route": "css/dashboard.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\daktxycn8p-hg3auwtgo1.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.002277904328"
+          "Quality": "0.002044989775"
         }
       ],
       "ResponseHeaders": [
@@ -2786,15 +2912,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "438"
+          "Value": "488"
         },
         {
           "Name": "ETag",
-          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+          "Value": "\"40s6Jy7MIC01OBWxHrpsLX1NSgq50qLk4cdIUJonjd4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+          "Value": "Fri, 30 May 2025 09:53:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2814,13 +2940,311 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+          "Value": "W/\"AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+          "Value": "sha256-AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1196"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 09:53:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.css.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\daktxycn8p-hg3auwtgo1.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"40s6Jy7MIC01OBWxHrpsLX1NSgq50qLk4cdIUJonjd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 09:53:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-40s6Jy7MIC01OBWxHrpsLX1NSgq50qLk4cdIUJonjd4="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.hg3auwtgo1.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\daktxycn8p-hg3auwtgo1.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002044989775"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "488"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"40s6Jy7MIC01OBWxHrpsLX1NSgq50qLk4cdIUJonjd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 09:53:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hg3auwtgo1"
+        },
+        {
+          "Name": "label",
+          "Value": "css/dashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.hg3auwtgo1.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1196"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 09:53:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hg3auwtgo1"
+        },
+        {
+          "Name": "label",
+          "Value": "css/dashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-AV5xh6qFNxdtd1t9Tz/PAjPKHL8gRAWI1vgnEDjhqs4="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.hg3auwtgo1.css.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\daktxycn8p-hg3auwtgo1.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"40s6Jy7MIC01OBWxHrpsLX1NSgq50qLk4cdIUJonjd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 09:53:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hg3auwtgo1"
+        },
+        {
+          "Name": "label",
+          "Value": "css/dashboard.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-40s6Jy7MIC01OBWxHrpsLX1NSgq50qLk4cdIUJonjd4="
+        }
+      ]
+    },
+    {
+      "Route": "css/league-table.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-r9l78tytiy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001230012300"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "812"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"w2uBvL4/sN2N2377Qni11WFerzOka47WxfTfAz/vTVU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:30:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI="
         }
       ]
     },
@@ -2835,7 +3259,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1128"
+          "Value": "2890"
         },
         {
           "Name": "Content-Type",
@@ -2843,11 +3267,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+          "Value": "\"b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+          "Value": "Fri, 30 May 2025 10:30:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2857,13 +3281,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+          "Value": "sha256-b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI="
         }
       ]
     },
     {
       "Route": "css/league-table.css.gz",
-      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-d9at6ufzqu.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-r9l78tytiy.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2872,7 +3296,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "438"
+          "Value": "812"
         },
         {
           "Name": "Content-Type",
@@ -2880,11 +3304,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+          "Value": "\"w2uBvL4/sN2N2377Qni11WFerzOka47WxfTfAz/vTVU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+          "Value": "Fri, 30 May 2025 10:30:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2902,18 +3326,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY="
+          "Value": "sha256-w2uBvL4/sN2N2377Qni11WFerzOka47WxfTfAz/vTVU="
         }
       ]
     },
     {
-      "Route": "css/league-table.d9at6ufzqu.css",
-      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-d9at6ufzqu.gz",
+      "Route": "css/league-table.r9l78tytiy.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-r9l78tytiy.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.002277904328"
+          "Quality": "0.001230012300"
         }
       ],
       "ResponseHeaders": [
@@ -2923,15 +3347,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "438"
+          "Value": "812"
         },
         {
           "Name": "ETag",
-          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+          "Value": "\"w2uBvL4/sN2N2377Qni11WFerzOka47WxfTfAz/vTVU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+          "Value": "Fri, 30 May 2025 10:30:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2951,13 +3375,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+          "Value": "W/\"b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d9at6ufzqu"
+          "Value": "r9l78tytiy"
         },
         {
           "Name": "label",
@@ -2965,12 +3389,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+          "Value": "sha256-b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI="
         }
       ]
     },
     {
-      "Route": "css/league-table.d9at6ufzqu.css",
+      "Route": "css/league-table.r9l78tytiy.css",
       "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\league-table.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2980,7 +3404,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1128"
+          "Value": "2890"
         },
         {
           "Name": "Content-Type",
@@ -2988,11 +3412,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY=\""
+          "Value": "\"b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+          "Value": "Fri, 30 May 2025 10:30:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3002,7 +3426,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d9at6ufzqu"
+          "Value": "r9l78tytiy"
         },
         {
           "Name": "label",
@@ -3010,13 +3434,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MYdEYSYpGUoyA7iKMhlBm1ylR++lGTZOJ0mxZ9W/oCY="
+          "Value": "sha256-b2Pu0C0KzacPIKfUXRTMAhJmNOk0pMa8yWDJKM7JCKI="
         }
       ]
     },
     {
-      "Route": "css/league-table.d9at6ufzqu.css.gz",
-      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-d9at6ufzqu.gz",
+      "Route": "css/league-table.r9l78tytiy.css.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\eznjyjtotk-r9l78tytiy.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3025,7 +3449,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "438"
+          "Value": "812"
         },
         {
           "Name": "Content-Type",
@@ -3033,11 +3457,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY=\""
+          "Value": "\"w2uBvL4/sN2N2377Qni11WFerzOka47WxfTfAz/vTVU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 13:56:17 GMT"
+          "Value": "Fri, 30 May 2025 10:30:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3055,7 +3479,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d9at6ufzqu"
+          "Value": "r9l78tytiy"
         },
         {
           "Name": "label",
@@ -3063,7 +3487,603 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MrdBzCln6sGOM8xlVfjroMhGFTLqw/UrSLsZ/egSUhY="
+          "Value": "sha256-w2uBvL4/sN2N2377Qni11WFerzOka47WxfTfAz/vTVU="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\jsczhsjam2-mhwhb9q9oi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001479289941"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "675"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FsIZqIv+Um9+DTVFYCGacTPp4FBaPfn6+Le0aTT04zQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1950"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.css.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\jsczhsjam2-mhwhb9q9oi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "675"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FsIZqIv+Um9+DTVFYCGacTPp4FBaPfn6+Le0aTT04zQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FsIZqIv+Um9+DTVFYCGacTPp4FBaPfn6+Le0aTT04zQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.mhwhb9q9oi.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\jsczhsjam2-mhwhb9q9oi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001479289941"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "675"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FsIZqIv+Um9+DTVFYCGacTPp4FBaPfn6+Le0aTT04zQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mhwhb9q9oi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.mhwhb9q9oi.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1950"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mhwhb9q9oi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uk1OZ56EBP9/dtTEErLSAt67WczEoFEydMLDKDG4tb8="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.mhwhb9q9oi.css.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\jsczhsjam2-mhwhb9q9oi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "675"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FsIZqIv+Um9+DTVFYCGacTPp4FBaPfn6+Le0aTT04zQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mhwhb9q9oi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FsIZqIv+Um9+DTVFYCGacTPp4FBaPfn6+Le0aTT04zQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.4w90u5sal0.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\y0hju6wawn-4w90u5sal0.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001675041876"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YygxVPbucSKbburLTPaYppcExv0T9Lb+bI9c99fi9A8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:05:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4w90u5sal0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/register.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.4w90u5sal0.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1651"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:05:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4w90u5sal0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/register.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.4w90u5sal0.css.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\y0hju6wawn-4w90u5sal0.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YygxVPbucSKbburLTPaYppcExv0T9Lb+bI9c99fi9A8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:05:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4w90u5sal0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/register.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YygxVPbucSKbburLTPaYppcExv0T9Lb+bI9c99fi9A8="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\y0hju6wawn-4w90u5sal0.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001675041876"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YygxVPbucSKbburLTPaYppcExv0T9Lb+bI9c99fi9A8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:05:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.css",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1651"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:05:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7HuAsm9vYLDU8OiIjnZ6zkWQvuYorxNFxs4K9X77CpU="
+        }
+      ]
+    },
+    {
+      "Route": "css/register.css.gz",
+      "AssetFile": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\Debug\\net9.0\\compressed\\y0hju6wawn-4w90u5sal0.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YygxVPbucSKbburLTPaYppcExv0T9Lb+bI9c99fi9A8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 30 May 2025 10:05:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YygxVPbucSKbburLTPaYppcExv0T9Lb+bI9c99fi9A8="
         }
       ]
     },

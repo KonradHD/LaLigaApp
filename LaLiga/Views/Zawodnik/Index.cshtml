@@ -4,12 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
+<link rel="stylesheet" href="~/css/league-table.css" />
+
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
+<form asp-controller="Zawodnik" asp-action="TopPrice" method="get">
+    <button type="submit">Najdrożsi piłkarze</button>
+</form>
 </p>
-<table class="table">
+<table class="league-table">
     <thead>
         <tr>
             <th>
@@ -70,3 +75,7 @@
         }
     </tbody>
 </table>
+
+<div>
+    <a asp-controller="Login" asp-action="Core">Back to Core</a>
+</div>

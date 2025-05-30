@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets\\LaLiga.68wocr8q91.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
       "Id": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\league-table.css",
       "PackagePath": "staticwebassets\\css\\league-table.css"
+    },
+    {
+      "Id": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
     },
     {
       "Id": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\wwwroot\\css\\site.css",

@@ -1,22 +1,23 @@
-@model IEnumerable<LaLiga.Models.Druzyna>
+@model IEnumerable<LaLiga.Models.Zawodnik>
 
 @{
-    ViewData["Title"] = "Tabela Drużyn";
+    ViewData["Title"] = "Zawodnicy";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <link rel="stylesheet" href="~/css/league-table.css" />
 
 <div class="table-container">
-    <h2>Tabela La Liga</h2>
+    <h2>Zawodnicy La Liga</Label></Label></h2>
 
     <table class="league-table">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Drużyna</th>
-                <th>Punkty</th>
-                <th>Bramki</th>
+                <th>Zawodnik</th>
+                <th>Druzyna</th>
+                <th>Pozycja</th>
+                <th>Wartość rynkowa</th>
             </tr>
         </thead>
         <tbody>
@@ -26,9 +27,10 @@
                 {
                     <tr>
                         <td>@i</td>
-                        <td>@item.nazwa_druzyny</td>
-                        <td>@item.punkty</td>
-                        <td>@item.gole</td>
+                        <td>@item.imie @item.nazwisko</td>
+                        <td>@item.druzyna.nazwa_druzyny</td>
+                        <td>@item.pozycja</td>
+                        <td>@item.wartosc_rynkowa</td>
                     </tr>
                     i++;
                 }

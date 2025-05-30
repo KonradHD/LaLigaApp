@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LaLiga.Data;
 using LaLiga.Models;
 using LaLiga.Filters;
+using AspNetCoreGeneratedDocument;
 
 namespace LaLiga.Controllers
 {
@@ -179,6 +180,44 @@ namespace LaLiga.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> TopPrice()
+        {
+            var mostValuablePlayers = _context.Zawodnik.OrderByDescending(z => (double)z.wartosc_rynkowa).Include(z => z.druzyna).AsNoTracking();
+            return View(await mostValuablePlayers.ToListAsync());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TopPrice(string? nazwa_druzyny, int? wiekPowyzej, int? wiekPonizej)
+        {
+            ViewBag.NazwaDruzyny = nazwa_druzyny;
+            ViewBag.WiekPowyzej = wiekPowyzej;
+            ViewBag.wiekPonizej = wiekPonizej;
+
+            var playersList = _context.Zawodnik
+            .Include(z => z.druzyna)
+            .AsQueryable();
+
+            if (!string.IsNullOrEmpty(nazwa_druzyny))
+            {
+                playersList = playersList.Where(z => z.druzyna.nazwa_druzyny.Equals(nazwa_druzyny));
+            }
+
+            if (wiekPowyzej != null)
+            {
+                playersList = playersList.Where(z => z.wiek >= wiekPowyzej);
+            }
+
+            if (wiekPonizej != null)
+            {
+                playersList.Where(z => z.wiek <= wiekPonizej);
+            }
+
+            playersList = playersList.OrderByDescending(z => (double)z.wartosc_rynkowa).AsNoTracking();
+            return View(await playersList.ToListAsync());
+        }
+
 
         private bool ZawodnikExists(int id, int numer)
         {

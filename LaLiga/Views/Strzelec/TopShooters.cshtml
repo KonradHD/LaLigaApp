@@ -1,0 +1,63 @@
+@model IEnumerable<LaLiga.Models.Strzelec>
+
+@{
+    ViewData["Title"] = "Strzelcy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/league-table.css" />
+
+<div class="table-container">
+    <form asp-action="TopShooters" method="post" class="filter-form-horizontal">
+        <div class="filter-row">
+            <div class="filter-col">
+                <label>Wiek do:</label>
+                <input type="number" name="wiekPonizej" min="0" value="@ViewBag.WiekPonizej" />
+            </div>
+            <div class="filter-col">
+                <label>Pozycja:</label>
+                <input type="text" name="pozycja" value="@ViewBag.Pozycja" />
+            </div>
+            <div class="filter-col">
+                <label>Drużyna:</label>
+                <input type="text" name="nazwa_druzyny" value="@ViewBag.NazwaDruzyny" />
+            </div>
+        </div>
+        <div>
+            <button type="submit">Filtruj</button>
+        </div>
+    </form>
+    <h2>Strzelcy La Liga</Label></Label></h2>
+
+    <table class="league-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Zawodnik</th>
+                <th>Druzyna</th>
+                <th>Liczba bramek</th>
+                <th>Liczba asyst</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.zawodnik.imie @item.zawodnik.nazwisko</td>
+                        <td>@item.zawodnik.druzyna.nazwa_druzyny</td>
+                        <td>@item.gole</td>
+                        <td>@item.asysty</td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

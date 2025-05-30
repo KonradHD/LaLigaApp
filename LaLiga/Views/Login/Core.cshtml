@@ -1,37 +1,36 @@
 @{
-    ViewData["Title"] = "Core";
+    ViewData["Title"] = "Panel główny";
 }
 
-<h2>Zostałeś zalogowany.</h2>
+<link rel="stylesheet" href="~/css/dashboard.css" />
 
-<form method="post" asp-action="Logout">
-    <button type="submit">Wyloguj</button>
-</form>
+<div class="dashboard-container">
+    <h2>Witaj w głównym panelu aplikacji</h2>
 
-<hr />
+    <hr />
 
-<div>
-    <form asp-controller="Uzytkownik" asp-action="Index" method="get">
-        <button type="submit">Użytkownicy</button>
-    </form>
+    <div class="button-grid">
+        <form asp-controller="Uzytkownik" asp-action="Index" method="get">
+            <button type="submit">Użytkownicy</button>
+        </form>
+        <form asp-controller="Druzyna" asp-action="Index" method="get">
+            <button type="submit">Drużyny</button>
+        </form>
+        <form asp-controller="Zawodnik" asp-action="Index" method="get">
+            <button type="submit">Zawodnicy</button>
+        </form>
+        <form asp-controller="Mecz" asp-action="Index" method="get">
+            <button type="submit">Mecze</button>
+        </form>
+        <form asp-controller="Strzelec" asp-action="Index" method="get">
+            <button type="submit">Strzelcy</button>
+        </form>
+        <form asp-controller="Statystyki" asp-action="Index" method="get">
+            <button type="submit">Statystyki</button>
+        </form>
+    </div>
 
-    <form asp-controller="Druzyna" asp-action="Index" method="get">
-        <button type="submit">Drużyny</button>
-    </form>
-
-    <form asp-controller="Zawodnik" asp-action="Index" method="get">
-        <button type="submit">Zawodnicy</button>
-    </form>
-
-    <form asp-controller="Mecz" asp-action="Index" method="get">
-        <button type="submit">Mecze</button>
-    </form>
-
-    <form asp-controller="Strzelec" asp-action="Index" method="get">
-        <button type="submit">Strzelcy</button>
-    </form>
-
-    <form asp-controller="Statystyki" asp-action="Index" method="get">
-        <button type="submit">Statystyki</button>
+    <form method="post" asp-action="Logout" class="logout-form">
+        <button type="submit" class="logout-button">Wyloguj</button>
     </form>
 </div>

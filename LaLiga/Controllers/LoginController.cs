@@ -37,7 +37,7 @@ namespace LaLiga.Controllers
                 // Ustawienie sesji
                 HttpContext.Session.SetInt32("id", uzytkownik.id);
                 HttpContext.Session.SetString("Email", uzytkownik.email);
-                HttpContext.Session.SetString("role", uzytkownik.rola);
+                HttpContext.Session.SetString("rola", uzytkownik.rola);
 
                 return RedirectToAction("Core");
             }

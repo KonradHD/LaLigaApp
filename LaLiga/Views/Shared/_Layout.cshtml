@@ -13,7 +13,6 @@
     @await Html.PartialAsync("_ValidationScriptsPartial")
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,5 +65,14 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
+@{
+    var message = Context.Session.GetString("AccessDeniedMessage");
+    if (!string.IsNullOrEmpty(message))
+    {
+        <div class="alert alert-danger">@message</div>
+        Context.Session.Remove("AccessDeniedMessage");
+    }
+}
 
 </html>

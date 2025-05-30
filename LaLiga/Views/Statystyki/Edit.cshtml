@@ -4,6 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
+<link rel="stylesheet" href="~/css/league-table.css" />
+
 <h1>Edit</h1>
 
 <h4>Statystyki</h4>
@@ -12,7 +14,7 @@
     @(Model.mecz?.termin.ToString("yyyy-MM-dd") ?? "")
 </h5>
 <hr />
-<div class="row">
+<div class="form-wrapper">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>

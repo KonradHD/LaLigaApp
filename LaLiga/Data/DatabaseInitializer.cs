@@ -290,47 +290,47 @@ namespace LaLiga.Data
                 List<Strzelec> strzelcy = new List<Strzelec>
                 {
                     // Mecz 1: Alavés vs Athletic Club
-                    new Strzelec { id_meczu = 1, id_druzyny = 1, numer = 15, gole = 1, asysty = 0 },
-                    new Strzelec { id_meczu = 1, id_druzyny = 2, numer = 9, gole = 2, asysty = 1 },
+                    new Strzelec { id_meczu = 1, id_druzyny = 1, numer = 3, gole = 1, asysty = 0 },
+                    new Strzelec { id_meczu = 1, id_druzyny = 2, numer = 11, gole = 2, asysty = 1 },
 
                     // Mecz 2: Atlético Madrid vs Barcelona
-                    new Strzelec { id_meczu = 2, id_druzyny = 4, numer = 10, gole = 1, asysty = 0 },
-                    new Strzelec { id_meczu = 2, id_druzyny = 3, numer = 19, gole = 1, asysty = 1 },
+                    new Strzelec { id_meczu = 2, id_druzyny = 4, numer = 8, gole = 1, asysty = 0 },
+                    new Strzelec { id_meczu = 2, id_druzyny = 3, numer = 6, gole = 1, asysty = 1 },
 
                     // Mecz 3: Cádiz vs Celta Vigo
-                    new Strzelec { id_meczu = 3, id_druzyny = 5, numer = 7, gole = 0, asysty = 1 },
-                    new Strzelec { id_meczu = 3, id_druzyny = 6, numer = 11, gole = 2, asysty = 0 },
+                    new Strzelec { id_meczu = 3, id_druzyny = 5, numer = 3, gole = 0, asysty = 1 },
+                    new Strzelec { id_meczu = 3, id_druzyny = 6, numer = 4, gole = 2, asysty = 0 },
 
                     // Mecz 4: Getafe vs Girona
                     new Strzelec { id_meczu = 4, id_druzyny = 7, numer = 20, gole = 1, asysty = 1 },
-                    new Strzelec { id_meczu = 4, id_druzyny = 8, numer = 10, gole = 0, asysty = 2 },
+                    new Strzelec { id_meczu = 4, id_druzyny = 8, numer = 1, gole = 0, asysty = 2 },
 
                     // Mecz 5: Granada vs Las Palmas
-                    new Strzelec { id_meczu = 5, id_druzyny = 10, numer = 17, gole = 1, asysty = 0 },
-                    new Strzelec { id_meczu = 5, id_druzyny = 9, numer = 8, gole = 2, asysty = 0 },
+                    new Strzelec { id_meczu = 5, id_druzyny = 10, numer = 13, gole = 1, asysty = 0 },
+                    new Strzelec { id_meczu = 5, id_druzyny = 9, numer = 7, gole = 2, asysty = 0 },
 
                     // Mecz 6: Mallorca vs Osasuna
-                    new Strzelec { id_meczu = 6, id_druzyny = 11, numer = 21, gole = 1, asysty = 1 },
-                    new Strzelec { id_meczu = 6, id_druzyny = 12, numer = 3, gole = 0, asysty = 1 },
+                    new Strzelec { id_meczu = 6, id_druzyny = 11, numer = 14, gole = 1, asysty = 1 },
+                    new Strzelec { id_meczu = 6, id_druzyny = 12, numer = 5, gole = 0, asysty = 1 },
 
                     // Mecz 7: Rayo Vallecano vs Real Betis
-                    new Strzelec { id_meczu = 7, id_druzyny = 14, numer = 9, gole = 2, asysty = 0 },
+                    new Strzelec { id_meczu = 7, id_druzyny = 14, numer = 10, gole = 2, asysty = 0 },
 
                     // Mecz 8: Real Madrid vs Real Sociedad
-                    new Strzelec { id_meczu = 8, id_druzyny = 15, numer = 7, gole = 1, asysty = 2 },
-                    new Strzelec { id_meczu = 8, id_druzyny = 16, numer = 19, gole = 0, asysty = 1 },
+                    new Strzelec { id_meczu = 8, id_druzyny = 15, numer = 22, gole = 1, asysty = 2 },
+                    new Strzelec { id_meczu = 8, id_druzyny = 16, numer = 4, gole = 0, asysty = 1 },
 
                     // Mecz 9: Sevilla vs Valencia
-                    new Strzelec { id_meczu = 9, id_druzyny = 17, numer = 6, gole = 1, asysty = 0 },
-                    new Strzelec { id_meczu = 9, id_druzyny = 18, numer = 10, gole = 1, asysty = 1 },
+                    new Strzelec { id_meczu = 9, id_druzyny = 17, numer = 16, gole = 1, asysty = 0 },
+                    new Strzelec { id_meczu = 9, id_druzyny = 18, numer = 14, gole = 1, asysty = 1 },
 
                     // Mecz 10: Villarreal vs Almería
-                    new Strzelec { id_meczu = 10, id_druzyny = 19, numer = 14, gole = 3, asysty = 1 },
-                    new Strzelec { id_meczu = 10, id_druzyny = 20, numer = 22, gole = 1, asysty = 0 },
+                    new Strzelec { id_meczu = 10, id_druzyny = 19, numer = 6, gole = 3, asysty = 1 },
+                    new Strzelec { id_meczu = 10, id_druzyny = 20, numer = 5, gole = 1, asysty = 0 },
                 };
 
-                //context.Strzelec.AddRange(strzelcy);
-                //context.SaveChangesAsync();
+                context.Strzelec.AddRange(strzelcy);
+                context.SaveChangesAsync();
             }
         }
     }

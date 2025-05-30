@@ -244,6 +244,50 @@ namespace LaLiga.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> TopShooters()
+        {
+            var Shooters = _context.Strzelec
+            .OrderByDescending(s => s.gole)
+            .ThenByDescending(s => s.asysty)
+            .Include(s => s.zawodnik)
+                .ThenInclude(z => z.druzyna)
+            .AsNoTracking();
+            return View(await Shooters.ToListAsync());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TopShooters(int? wiekPonizej, string? pozycja, string? nazwa_druzyny)
+        {
+            ViewBag.WiekPonizej = wiekPonizej;
+            ViewBag.Pozycja = pozycja;
+            ViewBag.NazwaDruzyny = nazwa_druzyny;
+
+            var Shooters = _context.Strzelec
+                            .Include(s => s.zawodnik)
+                                .ThenInclude(z => z.druzyna)
+                            .AsQueryable();
+
+            if (wiekPonizej != null)
+            {
+                Shooters = Shooters.Where(s => s.zawodnik.wiek <= wiekPonizej);
+            }
+            if (!string.IsNullOrEmpty(pozycja))
+            {
+                Shooters = Shooters.Where(s => s.zawodnik.pozycja == pozycja);
+            }
+            if (!string.IsNullOrEmpty(nazwa_druzyny))
+            {
+                Shooters = Shooters.Where(s => s.zawodnik.druzyna.nazwa_druzyny == nazwa_druzyny);
+            }
+
+            Shooters = Shooters
+                .OrderByDescending(s => s.gole)
+                .ThenByDescending(s => s.asysty)
+                .AsNoTracking();
+            return View(await Shooters.ToListAsync());
+        }
+
         private bool StrzelecExists(int id_druzyny, int numer, int id_meczu)
         {
             return _context.Strzelec.Any(s => s.id_druzyny == id_druzyny && s.numer == numer && s.id_meczu == id_meczu);

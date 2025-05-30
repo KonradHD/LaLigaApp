@@ -140,6 +140,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RyemVsZWNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Strzelec/TopShooters.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RyemVsZWNcVG9wU2hvb3RlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Uzytkownik/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pa1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -178,6 +182,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Zawodnik/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmF3b2RuaWtcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/Zawodnik/TopPrice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmF3b2RuaWtcVG9wUHJpY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/konra/OneDrive/Pulpit/Studia/Semestr4/pz2/projekt/LaLigaApp/LaLiga/Views/_ViewImports.cshtml]

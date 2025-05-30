@@ -4,13 +4,15 @@
     ViewData["Title"] = "Delete";
 }
 
+<link rel="stylesheet" href="~/css/league-table.css" />
+
 <h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Statystyki</h4>
     <hr />
-    <dl class="row">
+    <dl class="form-wrapper">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.mecz)
         </dt>
@@ -45,7 +47,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="id_meczu" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Delete" class="btn-save" /> |
         <a asp-action="Index">Back to List</a>
     </form>
 </div>

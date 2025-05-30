@@ -4,7 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<link rel="stylesheet" href="~/css/league-table.css" />
+
+<h1>Tabela LaLiga</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -12,7 +14,7 @@
     <button type="submit">Wygrani</button>
 </form>
 </p>
-<table class="table">
+<table class="league-table">
     <thead>
         <tr>
             <th>
@@ -49,3 +51,7 @@
         }
     </tbody>
 </table>
+
+<div>
+    <a asp-controller="Login" asp-action="Core">Back to Core</a>
+</div>
