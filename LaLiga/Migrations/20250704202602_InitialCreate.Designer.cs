@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(LaLigaContext))]
-    [Migration("20250528115914_InitialCreate")]
+    [Migration("20250704202602_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.6");
 
             modelBuilder.Entity("LaLiga.Models.Druzyna", b =>
                 {
@@ -80,10 +80,10 @@ namespace LaLiga.Migrations
                     b.Property<int>("gole_gospodarzy")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("strzaly_gosci")
+                    b.Property<int?>("strzaly_gosci")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("strzaly_gospodarzy")
+                    b.Property<int?>("strzaly_gospodarzy")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("id_meczu");
@@ -141,7 +141,6 @@ namespace LaLiga.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("rola")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("wiek")

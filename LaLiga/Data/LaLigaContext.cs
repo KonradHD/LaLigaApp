@@ -71,6 +71,7 @@ namespace LaLiga.Data
         }
 
 
+
         public DbSet<Strzelec> Strzelec { get; set; } = default!;
         public DbSet<Druzyna> Druzyna { get; set; } = default!;
         public DbSet<Mecz> Mecz { get; set; } = default!;

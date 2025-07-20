@@ -243,7 +243,7 @@ namespace LaLiga.Data
                 context.SaveChangesAsync();
             }
 
-            if (!context.Statystyki.Any())
+            /* if (!context.Statystyki.Any())
             {
                 var statystykiList = new List<Statystyki>
                 {
@@ -283,7 +283,7 @@ namespace LaLiga.Data
 
                 context.Statystyki.AddRange(statystykiList);
                 context.SaveChangesAsync();
-            }
+            } */
 
             if (!context.Strzelec.Any())
             {

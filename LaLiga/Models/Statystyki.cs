@@ -14,8 +14,8 @@ namespace LaLiga.Models
         [Display(Name = "Gole gości")]
         public int gole_gosci { get; set; }
         [Display(Name = "Strzały gospodarzy")]
-        public int strzaly_gospodarzy { get; set; }
+        public int? strzaly_gospodarzy { get; set; }
         [Display(Name = "Strzały gości")]
-        public int strzaly_gosci { get; set; }
+        public int? strzaly_gosci { get; set; }
     }
 }

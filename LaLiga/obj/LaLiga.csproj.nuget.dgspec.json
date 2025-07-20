@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {}
+    "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {}
   },
   "projects": {
-    "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {
+    "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
+        "projectUniqueName": "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
         "projectName": "LaLiga",
-        "projectPath": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
-        "packagesPath": "C:\\Users\\konra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\konra\\OneDrive\\Pulpit\\Studia\\Semestr4\\pz2\\projekt\\LaLigaApp\\LaLiga\\obj\\",
+        "projectPath": "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
+        "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\konra\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Konrad\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -48,21 +48,21 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[9.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SQLite": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[9.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[9.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[9.0.6, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
