@@ -37,6 +37,10 @@ namespace LaLiga.Migrations
                         .HasColumnType("INTEGER")
                         .HasDefaultValue(0);
 
+                    b.Property<string>("stadion")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("id_druzyny");
 
                     b.ToTable("Druzyna");

@@ -15,9 +15,9 @@ namespace LaLiga.Migrations
                 name: "Druzyna",
                 columns: table => new
                 {
-                    id_druzyny = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    id_druzyny = table.Column<int>(type: "INTEGER", nullable: false),
                     nazwa_druzyny = table.Column<string>(type: "TEXT", nullable: false),
+                    stadion = table.Column<string>(type: "TEXT", nullable: false),
                     punkty = table.Column<int>(type: "INTEGER", nullable: true, defaultValue: 0),
                     gole = table.Column<int>(type: "INTEGER", nullable: true, defaultValue: 0)
                 },
@@ -366,6 +366,7 @@ namespace LaLiga.Migrations
             migrationBuilder.Sql("DROP TRIGGER IF EXISTS insert_goals;");
             migrationBuilder.Sql("DROP TRIGGER IF EXISTS update_goals;");
             migrationBuilder.Sql("DROP TRIGGER IF EXISTS delete_goals;");
+
         }
     }
 }

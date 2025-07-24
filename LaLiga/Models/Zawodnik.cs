@@ -12,16 +12,42 @@ namespace LaLiga.Models
         [Display(Name = "Imię")]
         public string imie { get; set; }
         [Display(Name = "Nazwisko")]
-        public string nazwisko { get; set; }
-        [Display(Name = "pozycja")]
+        [DisplayFormat(NullDisplayText = "Brak")]
+        public string? nazwisko { get; set; }
+        [Display(Name = "Pozycja")]
         [DisplayFormat(NullDisplayText = "Brak")]
         public string? pozycja { get; set; }
         [Display(Name = "Wiek")]
         public int wiek { get; set; }
-        [Display(Name = "Wartość rynkowa")]
-        [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
-        public decimal wartosc_rynkowa { get; set; }
+        [Display(Name = "Kraj pochodzenia")]
+        [DisplayFormat(NullDisplayText = "Nieznane")]
+        public string? kraj_pochodzenia { get; set; }
+        [Display(Name = "Kontuzjowany")]
+        public bool injured { get; set; }
         public ICollection<Strzelec>? strzelcy { get; set; }
+
+
+        public Zawodnik(int id_druzyny, int numer, string imie, string nazwisko, string pozycja, int wiek, string kraj_pochodzenia, bool injured)
+        {
+            this.id_druzyny = id_druzyny;
+            this.numer = numer;
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.pozycja = pozycja;
+            this.wiek = wiek;
+            this.kraj_pochodzenia = kraj_pochodzenia;
+            this.injured = injured;
+        }
+
+        public Zawodnik(int id_druzyny, int numer, string imie, string pozycja, int wiek)
+        {
+            this.id_druzyny = id_druzyny;
+            this.numer = numer;
+            this.imie = imie;
+            this.pozycja = pozycja;
+            this.wiek = wiek;
+
+            injured = false;
+        }
     }
 }
