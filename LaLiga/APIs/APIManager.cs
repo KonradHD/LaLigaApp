@@ -69,13 +69,24 @@ public class APIManager
         string jsonPlayers = File.ReadAllText(filePathPlayers);
         string jsonInfo = File.ReadAllText(filePathInfo);
         List<Zawodnik> zawodnicy = new List<Zawodnik>();
+        System.Console.WriteLine("========================================================");
 
         RootPlayer? rootPlayers = JsonSerializer.Deserialize<RootPlayer>(jsonPlayers);
-        RootPlayerRes? rootInfo = JsonSerializer.Deserialize<RootPlayerRes>(jsonInfo);
+        RootPlayerInfo? rootInfo = JsonSerializer.Deserialize<RootPlayerInfo>(jsonInfo);
+
         if (rootPlayers != null && rootInfo != null)
         {
-            List<Player> players = rootPlayers.players;
+            List<Player> players = rootPlayers.response.Select(p => p.player).ToList();
             List<PlayerInfo> playersInfo = rootInfo.response.Select(p => p.player).ToList();
+            foreach (var p in players)
+            {
+                System.Console.WriteLine("Imie: " + p.name);
+            }
+
+            foreach (var p in playersInfo)
+            {
+                System.Console.WriteLine("Info: " + p.firstname);
+            }
             foreach (Player player in players)
             {
                 PlayerInfo? playerInfo = playersInfo.Find(p => p.id == player.id);

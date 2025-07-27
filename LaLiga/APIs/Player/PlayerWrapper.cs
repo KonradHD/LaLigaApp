@@ -1,4 +1,4 @@
 public class PlayerWrapper
 {
-    public PlayerInfo player { get; set; }
+    public Player player { get; set; }
 }

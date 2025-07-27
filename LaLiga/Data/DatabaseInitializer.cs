@@ -14,7 +14,7 @@ namespace LaLiga.Data
 
             if (!context.Druzyna.Any())
             {
-                await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/teams?league=140&season=2024&country=Spain", "teamData.txt");
+                await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/teams?league=140&season=2024&country=Spain", "APIs/Data/teamData.txt");
                 List<Druzyna> druzyny = apiManager.getTeamsData("teamData.txt");
 
                 context.Druzyna.AddRange(druzyny);
@@ -26,9 +26,9 @@ namespace LaLiga.Data
                 List<int> ids = await context.Druzyna.Select(d => d.id_druzyny).ToListAsync();
                 foreach (int id in ids)
                 {
-                    await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/players?team=" + id + "&league=140&season=2024", "playerData" + id + ".txt");
-                    await apiManager.createData("", );
-                    List<Zawodnik> zawodnicy = apiManager.getPlayersData()
+                    await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/players/squads?team=" + id, "APIs/Data/playerData" + id + ".txt");
+                    await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/players?team=" + id + "&league=140&season=2024", "APIs/Data/playerInfoData" + id + ".txt");
+                    List<Zawodnik> zawodnicy = apiManager.getPlayersData("APIs/Data/playerData" + id + ".txt", "APIs/Data/playerInfoData" + id + ".txt", id);
                     context.Zawodnik.AddRange(zawodnicy);
                 }
                 await context.SaveChangesAsync();
@@ -52,7 +52,7 @@ namespace LaLiga.Data
 
             if (!context.Mecz.Any())
             {
-                List<Mecz> mecze = new List<Mecz>
+                /* List<Mecz> mecze = new List<Mecz>
                 {
                     // Kolejka 1 (data: 2024-08-16)
                     new Mecz { id_gospodarzy = 1, id_gosci = 2, termin = new DateTime(2024, 8, 16) },
@@ -92,9 +92,8 @@ namespace LaLiga.Data
                 };
 
                 context.Mecz.AddRange(mecze);
-                context.SaveChangesAsync();
+                context.SaveChangesAsync(); */
             }
-            */
 
             /* if (!context.Statystyki.Any())
             {
@@ -140,7 +139,7 @@ namespace LaLiga.Data
 
             if (!context.Strzelec.Any())
             {
-                List<Strzelec> strzelcy = new List<Strzelec>
+                /* List<Strzelec> strzelcy = new List<Strzelec>
                 {
                     // Mecz 1: Alavés vs Athletic Club
                     new Strzelec { id_meczu = 1, id_druzyny = 1, numer = 3, gole = 1, asysty = 0 },
@@ -183,7 +182,7 @@ namespace LaLiga.Data
                 };
 
                 context.Strzelec.AddRange(strzelcy);
-                context.SaveChangesAsync();
+                context.SaveChangesAsync(); */
             }
         }
     }

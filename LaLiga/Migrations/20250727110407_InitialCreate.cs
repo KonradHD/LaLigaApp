@@ -15,7 +15,8 @@ namespace LaLiga.Migrations
                 name: "Druzyna",
                 columns: table => new
                 {
-                    id_druzyny = table.Column<int>(type: "INTEGER", nullable: false),
+                    id_druzyny = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     nazwa_druzyny = table.Column<string>(type: "TEXT", nullable: false),
                     stadion = table.Column<string>(type: "TEXT", nullable: false),
                     punkty = table.Column<int>(type: "INTEGER", nullable: true, defaultValue: 0),
@@ -79,10 +80,11 @@ namespace LaLiga.Migrations
                     id_druzyny = table.Column<int>(type: "INTEGER", nullable: false),
                     numer = table.Column<int>(type: "INTEGER", nullable: false),
                     imie = table.Column<string>(type: "TEXT", nullable: false),
-                    nazwisko = table.Column<string>(type: "TEXT", nullable: false),
+                    nazwisko = table.Column<string>(type: "TEXT", nullable: true),
                     pozycja = table.Column<string>(type: "TEXT", nullable: true),
                     wiek = table.Column<int>(type: "INTEGER", nullable: false),
-                    wartosc_rynkowa = table.Column<decimal>(type: "TEXT", nullable: false)
+                    kraj_pochodzenia = table.Column<string>(type: "TEXT", nullable: true),
+                    injured = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -157,7 +159,6 @@ namespace LaLiga.Migrations
                 name: "IX_Strzelec_id_meczu",
                 table: "Strzelec",
                 column: "id_meczu");
-
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS new_guests_goals AFTER INSERT ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci WHERE id_druzyny = 

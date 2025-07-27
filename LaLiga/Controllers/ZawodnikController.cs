@@ -182,14 +182,14 @@ namespace LaLiga.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> TopPrice()
+        public async Task<IActionResult> NotInjured()
         {
-            var mostValuablePlayers = _context.Zawodnik.OrderByDescending(z => (double)z.wartosc_rynkowa).Include(z => z.druzyna).AsNoTracking();
-            return View(await mostValuablePlayers.ToListAsync());
+            var notInjuredPlayers = _context.Zawodnik.Where(z => z.injured == false).Include(z => z.druzyna).AsNoTracking();
+            return View(await notInjuredPlayers.ToListAsync());
         }
 
         [HttpPost]
-        public async Task<IActionResult> TopPrice(string? nazwa_druzyny, int? wiekPowyzej, int? wiekPonizej)
+        public async Task<IActionResult> NotInjured(string? nazwa_druzyny, int? wiekPowyzej, int? wiekPonizej)
         {
             ViewBag.NazwaDruzyny = nazwa_druzyny;
             ViewBag.WiekPowyzej = wiekPowyzej;
@@ -214,7 +214,7 @@ namespace LaLiga.Controllers
                 playersList.Where(z => z.wiek <= wiekPonizej);
             }
 
-            playersList = playersList.OrderByDescending(z => (double)z.wartosc_rynkowa).AsNoTracking();
+            playersList = playersList.Where(z => z.injured == false).AsNoTracking();
             return View(await playersList.ToListAsync());
         }
 

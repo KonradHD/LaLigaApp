@@ -1,4 +1,4 @@
 public class RootPlayer
 {
-    public List<Player> players { get; set; }
+    public List<PlayerWrapper> response { get; set; }
 }

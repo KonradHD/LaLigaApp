@@ -10,8 +10,8 @@
 
 <p>
     <a asp-action="Create">Create New</a>
-<form asp-controller="Zawodnik" asp-action="TopPrice" method="get">
-    <button type="submit">Najdrożsi piłkarze</button>
+<form asp-controller="Zawodnik" asp-action="NotInjured" method="get">
+    <button type="submit">Zawodnicy niekontuzjowani</button>
 </form>
 </p>
 <table class="league-table">
@@ -36,7 +36,10 @@
                 @Html.DisplayNameFor(model => model.wiek)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.wartosc_rynkowa)
+                @Html.DisplayNameFor(model => model.kraj_pochodzenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.injured)
             </th>
             <th></th>
         </tr>
@@ -64,7 +67,10 @@
                     @Html.DisplayFor(modelItem => item.wiek)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.wartosc_rynkowa)
+                    @Html.DisplayFor(modelItem => item.kraj_pochodzenia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.injured)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id_druzyny = item.id_druzyny, numer = item.numer }) |

@@ -164,14 +164,16 @@ namespace LaLiga.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("injured")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("kraj_pochodzenia")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("nazwisko")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("pozycja")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("wartosc_rynkowa")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("wiek")
