@@ -69,36 +69,29 @@ public class APIManager
         string jsonPlayers = File.ReadAllText(filePathPlayers);
         string jsonInfo = File.ReadAllText(filePathInfo);
         List<Zawodnik> zawodnicy = new List<Zawodnik>();
-        System.Console.WriteLine("========================================================");
 
-        RootPlayer? rootPlayers = JsonSerializer.Deserialize<RootPlayer>(jsonPlayers);
         RootPlayerInfo? rootInfo = JsonSerializer.Deserialize<RootPlayerInfo>(jsonInfo);
+        RootPlayer? rootPlayers = JsonSerializer.Deserialize<RootPlayer>(jsonPlayers);
 
         if (rootPlayers != null && rootInfo != null)
         {
-            List<Player> players = rootPlayers.response.Select(p => p.player).ToList();
+            List<Player> players = rootPlayers.response[0].players;
             List<PlayerInfo> playersInfo = rootInfo.response.Select(p => p.player).ToList();
-            foreach (var p in players)
-            {
-                System.Console.WriteLine("Imie: " + p.name);
-            }
-
-            foreach (var p in playersInfo)
-            {
-                System.Console.WriteLine("Info: " + p.firstname);
-            }
             foreach (Player player in players)
             {
-                PlayerInfo? playerInfo = playersInfo.Find(p => p.id == player.id);
-                if (playerInfo != null)
+                if (player.number != null && zawodnicy.FirstOrDefault(z => z.numer == player.number) == null)
                 {
-                    Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number, playerInfo.firstname, playerInfo.lastname, player.position, player.age, playerInfo.nationality, playerInfo.injured);
-                    zawodnicy.Add(zawodnik);
-                }
-                else
-                {
-                    Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number, player.name, player.position, player.age);
-                    zawodnicy.Add(zawodnik);
+                    PlayerInfo? playerInfo = playersInfo.FirstOrDefault(p => p.id == player.id);
+                    if (playerInfo != null)
+                    {
+                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, playerInfo.firstname, playerInfo.lastname, player.position, player.age, playerInfo.nationality, playerInfo.injured);
+                        zawodnicy.Add(zawodnik);
+                    }
+                    else
+                    {
+                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, player.name, player.position, player.age);
+                        zawodnicy.Add(zawodnik);
+                    }
                 }
             }
         }
