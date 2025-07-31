@@ -15,7 +15,7 @@ namespace LaLiga.Data
             if (!context.Druzyna.Any())
             {
                 await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/teams?league=140&season=2024&country=Spain", "APIs/Data/teamData.txt");
-                List<Druzyna> druzyny = apiManager.getTeamsData("teamData.txt");
+                List<Druzyna> druzyny = apiManager.getTeamsData("APIs/Data/teamData.txt");
 
                 context.Druzyna.AddRange(druzyny);
                 await context.SaveChangesAsync();
@@ -26,20 +26,15 @@ namespace LaLiga.Data
                 List<int> ids = await context.Druzyna.Select(d => d.id_druzyny).ToListAsync();
                 foreach (int id in ids)
                 {
-                    System.Console.WriteLine(id + "--------------------");
-                }
-                foreach (int id in ids)
-                {
                     try
                     {
-                        System.Console.WriteLine($"przetwarzam zawodników druzyny {id}");
+                        Console.WriteLine($"przetwarzam zawodników druzyny {id}");
                         string playerDataPath = $"APIs/Data/playerData{id}.txt";
                         string playerInfoDataPath = $"APIs/Data/playerInfoData{id}.txt";
 
                         await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/players/squads?team={id}", playerDataPath);
                         await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/players?team={id}&league=140&season=2024", playerInfoDataPath);
                         List<Zawodnik> zawodnicy = apiManager.getPlayersData(playerDataPath, playerInfoDataPath, id);
-                        System.Console.WriteLine(zawodnicy[0].wiek + "-------------------------------------------------");
                         context.Zawodnik.AddRange(zawodnicy);
                     }
                     catch (Exception ex)

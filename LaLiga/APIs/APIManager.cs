@@ -115,7 +115,7 @@ public class APIManager
             {
                 for (int i = 0; i < fixtures.Count(); i++)
                 {
-                    string dateStr = fixtures[i].date.Substring(fixtures[i].date.IndexOf("T") + 1);
+                    string dateStr = fixtures[i].date.Substring(0, fixtures[i].date.IndexOf("T"));
                     System.Console.WriteLine(dateStr);
                     DateTime date;
                     if (DateTime.TryParse(dateStr, out date))
