@@ -1,4 +1,5 @@
 using System.Text.Json;
+using LaLiga.APIs.Match;
 using LaLiga.Models;
 
 public class APIManager
@@ -96,5 +97,35 @@ public class APIManager
             }
         }
         return zawodnicy;
+    }
+
+    public List<Mecz> getMatchesData(string filePath)
+    {
+        string jsonMatch = File.ReadAllText(filePath);
+
+        Root? root = JsonSerializer.Deserialize<Root>(jsonMatch);
+        List<Mecz> mecze = new List<Mecz>();
+
+        if (root != null)
+        {
+            List<Fixture> fixtures = root.response.Select(f => f.fixture).ToList();
+            List<LaLiga.APIs.Match.Team> home = root.response.Select(t => t.teams.home).ToList();
+            List<LaLiga.APIs.Match.Team> away = root.response.Select(t => t.teams.away).ToList();
+            if (fixtures.Count() >= home.Count())
+            {
+                for (int i = 0; i < fixtures.Count(); i++)
+                {
+                    string dateStr = fixtures[i].date.Substring(fixtures[i].date.IndexOf("T") + 1);
+                    System.Console.WriteLine(dateStr);
+                    DateTime date;
+                    if (DateTime.TryParse(dateStr, out date))
+                    {
+                        Mecz mecz = new Mecz(fixtures[i].id, home[i].id, away[i].id, date, fixtures[i].referee);
+                        mecze.Add(mecz);
+                    }
+                }
+            }
+        }
+        return mecze;
     }
 }

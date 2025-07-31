@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(LaLigaContext))]
-    [Migration("20250727110407_InitialCreate")]
+    [Migration("20250731154208_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -60,6 +60,10 @@ namespace LaLiga.Migrations
 
                     b.Property<int>("id_gospodarzy")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("sedzia")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("termin")
                         .HasColumnType("TEXT");

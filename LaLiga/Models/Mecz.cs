@@ -17,7 +17,19 @@ namespace LaLiga.Models
         [Display(Name = "Termin")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime termin { get; set; }
+        [Display(Name = "Sędzia")]
+        public string sedzia { get; set; }
         public Statystyki? stats { get; set; }
         public ICollection<Strzelec>? strzelcy { get; set; }
+
+        public Mecz(int id_meczu, int id_gosci, int id_gospodarzy, DateTime termin, string sedzia)
+        {
+            this.id_meczu = id_meczu;
+            this.id_gosci = id_gosci;
+            this.id_gospodarzy = id_gospodarzy;
+            this.termin = termin;
+            this.sedzia = sedzia;
+        }
     }
+
 }

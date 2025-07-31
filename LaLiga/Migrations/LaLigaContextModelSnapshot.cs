@@ -58,6 +58,10 @@ namespace LaLiga.Migrations
                     b.Property<int>("id_gospodarzy")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("sedzia")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("termin")
                         .HasColumnType("TEXT");
 

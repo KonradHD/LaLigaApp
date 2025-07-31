@@ -54,7 +54,8 @@ namespace LaLiga.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     id_gosci = table.Column<int>(type: "INTEGER", nullable: false),
                     id_gospodarzy = table.Column<int>(type: "INTEGER", nullable: false),
-                    termin = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    termin = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    sedzia = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,6 +160,7 @@ namespace LaLiga.Migrations
                 name: "IX_Strzelec_id_meczu",
                 table: "Strzelec",
                 column: "id_meczu");
+
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS new_guests_goals AFTER INSERT ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci WHERE id_druzyny = 

@@ -68,47 +68,17 @@ namespace LaLiga.Data
 
             if (!context.Mecz.Any())
             {
-                /* List<Mecz> mecze = new List<Mecz>
+                try
                 {
-                    // Kolejka 1 (data: 2024-08-16)
-                    new Mecz { id_gospodarzy = 1, id_gosci = 2, termin = new DateTime(2024, 8, 16) },
-                    new Mecz { id_gospodarzy = 3, id_gosci = 4, termin = new DateTime(2024, 8, 16) },
-                    new Mecz { id_gospodarzy = 5, id_gosci = 6, termin = new DateTime(2024, 8, 17) },
-                    new Mecz { id_gospodarzy = 7, id_gosci = 8, termin = new DateTime(2024, 8, 17) },
-                    new Mecz { id_gospodarzy = 9, id_gosci = 10, termin = new DateTime(2024, 8, 18) },
-                    new Mecz { id_gospodarzy = 11, id_gosci = 12, termin = new DateTime(2024, 8, 18) },
-                    new Mecz { id_gospodarzy = 13, id_gosci = 14, termin = new DateTime(2024, 8, 18) },
-                    new Mecz { id_gospodarzy = 15, id_gosci = 16, termin = new DateTime(2024, 8, 19) },
-                    new Mecz { id_gospodarzy = 17, id_gosci = 18, termin = new DateTime(2024, 8, 19) },
-                    new Mecz { id_gospodarzy = 19, id_gosci = 20, termin = new DateTime(2024, 8, 19) },
-
-                    // Kolejka 2 (data: 2024-08-23)
-                    new Mecz { id_gospodarzy = 2, id_gosci = 3, termin = new DateTime(2024, 8, 23) },
-                    new Mecz { id_gospodarzy = 4, id_gosci = 5, termin = new DateTime(2024, 8, 23) },
-                    new Mecz { id_gospodarzy = 6, id_gosci = 7, termin = new DateTime(2024, 8, 24) },
-                    new Mecz { id_gospodarzy = 8, id_gosci = 9, termin = new DateTime(2024, 8, 24) },
-                    new Mecz { id_gospodarzy = 10, id_gosci = 11, termin = new DateTime(2024, 8, 25) },
-                    new Mecz { id_gospodarzy = 12, id_gosci = 13, termin = new DateTime(2024, 8, 25) },
-                    new Mecz { id_gospodarzy = 14, id_gosci = 15, termin = new DateTime(2024, 8, 25) },
-                    new Mecz { id_gospodarzy = 16, id_gosci = 17, termin = new DateTime(2024, 8, 26) },
-                    new Mecz { id_gospodarzy = 18, id_gosci = 19, termin = new DateTime(2024, 8, 26) },
-                    new Mecz { id_gospodarzy = 20, id_gosci = 1, termin = new DateTime(2024, 8, 26) },
-
-                    // Kolejka 3 (data: 2024-08-30)
-                    new Mecz { id_gospodarzy = 3, id_gosci = 1, termin = new DateTime(2024, 8, 30) },
-                    new Mecz { id_gospodarzy = 5, id_gosci = 2, termin = new DateTime(2024, 8, 30) },
-                    new Mecz { id_gospodarzy = 7, id_gosci = 4, termin = new DateTime(2024, 8, 31) },
-                    new Mecz { id_gospodarzy = 9, id_gosci = 6, termin = new DateTime(2024, 8, 31) },
-                    new Mecz { id_gospodarzy = 11, id_gosci = 8, termin = new DateTime(2024, 9, 1) },
-                    new Mecz { id_gospodarzy = 13, id_gosci = 10, termin = new DateTime(2024, 9, 1) },
-                    new Mecz { id_gospodarzy = 15, id_gosci = 12, termin = new DateTime(2024, 9, 1) },
-                    new Mecz { id_gospodarzy = 17, id_gosci = 14, termin = new DateTime(2024, 9, 2) },
-                    new Mecz { id_gospodarzy = 19, id_gosci = 16, termin = new DateTime(2024, 9, 2) },
-                    new Mecz { id_gospodarzy = 18, id_gosci = 20, termin = new DateTime(2024, 9, 2) },
-                };
-
-                context.Mecz.AddRange(mecze);
-                context.SaveChangesAsync(); */
+                    await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/fixtures?league=140&season=2024", "APIs/Data/matchesData.txt");
+                    List<Mecz> mecze = apiManager.getMatchesData("APIs/Data/matchesData.txt");
+                    context.Mecz.AddRange(mecze);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"[BŁĄD]: {e.Message}");
+                }
+                await context.SaveChangesAsync();
             }
 
             /* if (!context.Statystyki.Any())
