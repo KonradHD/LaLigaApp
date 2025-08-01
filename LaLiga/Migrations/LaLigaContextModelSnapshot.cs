@@ -79,10 +79,10 @@ namespace LaLiga.Migrations
                     b.Property<int>("id_meczu")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("gole_gosci")
+                    b.Property<int?>("gole_gosci")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("gole_gospodarzy")
+                    b.Property<int?>("gole_gospodarzy")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("strzaly_gosci")
@@ -107,10 +107,16 @@ namespace LaLiga.Migrations
                     b.Property<int>("id_meczu")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("APIid")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("asysty")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("gole")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("samoboje")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("id_druzyny", "numer", "id_meczu");
@@ -162,6 +168,9 @@ namespace LaLiga.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("numer")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("id")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("imie")

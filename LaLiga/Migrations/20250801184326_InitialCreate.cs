@@ -85,7 +85,8 @@ namespace LaLiga.Migrations
                     pozycja = table.Column<string>(type: "TEXT", nullable: true),
                     wiek = table.Column<int>(type: "INTEGER", nullable: false),
                     kraj_pochodzenia = table.Column<string>(type: "TEXT", nullable: true),
-                    injured = table.Column<bool>(type: "INTEGER", nullable: false)
+                    injured = table.Column<bool>(type: "INTEGER", nullable: false),
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -103,8 +104,8 @@ namespace LaLiga.Migrations
                 columns: table => new
                 {
                     id_meczu = table.Column<int>(type: "INTEGER", nullable: false),
-                    gole_gospodarzy = table.Column<int>(type: "INTEGER", nullable: false),
-                    gole_gosci = table.Column<int>(type: "INTEGER", nullable: false),
+                    gole_gospodarzy = table.Column<int>(type: "INTEGER", nullable: true),
+                    gole_gosci = table.Column<int>(type: "INTEGER", nullable: true),
                     strzaly_gospodarzy = table.Column<int>(type: "INTEGER", nullable: true),
                     strzaly_gosci = table.Column<int>(type: "INTEGER", nullable: true)
                 },
@@ -127,7 +128,9 @@ namespace LaLiga.Migrations
                     numer = table.Column<int>(type: "INTEGER", nullable: false),
                     id_meczu = table.Column<int>(type: "INTEGER", nullable: false),
                     gole = table.Column<int>(type: "INTEGER", nullable: true),
-                    asysty = table.Column<int>(type: "INTEGER", nullable: true)
+                    asysty = table.Column<int>(type: "INTEGER", nullable: true),
+                    samoboje = table.Column<int>(type: "INTEGER", nullable: true),
+                    APIid = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -164,19 +167,22 @@ namespace LaLiga.Migrations
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS new_guests_goals AFTER INSERT ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci WHERE id_druzyny = 
-                                        (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu);
+                                        (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu)
+                                        AND NOT EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = NEW.id_meczu AND NEW.gole_gosci IS NULL);
                                     END;");
 
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS new_hosts_goals AFTER INSERT ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gospodarzy WHERE id_druzyny = 
-                                        (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu);
+                                        (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu)
+                                        AND NOT EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = NEW.id_meczu AND NEW.gole_gospodarzy IS NULL);
                                     END;");
 
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS new_guests_points AFTER INSERT ON Statystyki
                                     BEGIN 
                                         UPDATE Druzyna SET punkty = punkty + 
-                                            CASE 
+                                            CASE
+                                                WHEN NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL THEN 0
                                                 WHEN NEW.gole_gosci > NEW.gole_gospodarzy THEN 3
                                                 WHEN NEW.gole_gosci = NEW.gole_gospodarzy THEN 1
                                                 ELSE 0
@@ -188,6 +194,7 @@ namespace LaLiga.Migrations
                                     BEGIN 
                                         UPDATE Druzyna SET punkty = punkty + 
                                             CASE 
+                                                WHEN NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL THEN 0
                                                 WHEN NEW.gole_gosci < NEW.gole_gospodarzy THEN 3
                                                 WHEN NEW.gole_gosci = NEW.gole_gospodarzy THEN 1
                                                 ELSE 0
@@ -198,13 +205,23 @@ namespace LaLiga.Migrations
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS updated_guests_goals AFTER UPDATE ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci - OLD.gole_gosci WHERE id_druzyny = 
-                                        (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu);
+                                        (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu) 
+                                        AND NOT EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gosci IS NULL);
+
+                                        UPDATE Druzyna SET gole = gole - OLD.gole_gosci WHERE id_druzyny = 
+                                        (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu) 
+                                        AND EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gosci IS NULL);
                                     END;");
 
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS updated_hosts_goals AFTER UPDATE ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gospodarzy - OLD.gole_gospodarzy WHERE id_druzyny = 
-                                        (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu);
+                                        (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu)
+                                        AND NOT EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gospodarzy IS NULL);
+
+                                        UPDATE Druzyna SET gole = gole - OLD.gole_gospodarzy WHERE id_druzyny = 
+                                        (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu)
+                                        AND EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gospodarzy IS NULL);
                                     END;");
 
 
@@ -212,6 +229,8 @@ namespace LaLiga.Migrations
                                     BEGIN 
                                         UPDATE Druzyna SET punkty = punkty + 
                                             CASE 
+                                                WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci > OLD.gole_gospodarzy THEN -3
+                                                WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci = OLD.gole_gospodarzy THEN -1
                                                 WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN 3
                                                 WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci = OLD.gole_gospodarzy THEN 2
                                                 WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN 1
@@ -226,7 +245,9 @@ namespace LaLiga.Migrations
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS updated_hosts_points AFTER UPDATE ON Statystyki
                                     BEGIN 
                                         UPDATE Druzyna SET punkty = punkty + 
-                                            CASE 
+                                            CASE
+                                                WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci < OLD.gole_gospodarzy THEN -3
+                                                WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci = OLD.gole_gospodarzy THEN -1
                                                 WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN -3
                                                 WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci = OLD.gole_gospodarzy THEN -1
                                                 WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN -2
@@ -304,26 +325,48 @@ namespace LaLiga.Migrations
                                     BEGIN
                                         -- Wstaw Statystyki, jeśli nie istnieją
                                         INSERT OR IGNORE INTO Statystyki(id_meczu, gole_gosci, gole_gospodarzy) VALUES(NEW.id_meczu, 0, 0);
+
                                         UPDATE Statystyki SET gole_gosci = gole_gosci + NEW.gole WHERE NEW.id_meczu = id_meczu 
                                         AND NEW.id_druzyny = (SELECT id_gosci FROM Mecz WHERE id_meczu = NEW.id_meczu);
+                                        UPDATE Statystyki SET gole_gosci = gole_gosci + NEW.samoboje WHERE NEW.id_meczu = id_meczu 
+                                        AND NEW.id_druzyny = (SELECT id_gospodarzy FROM Mecz WHERE id_meczu = NEW.id_meczu);
+
                                         UPDATE Statystyki SET gole_gospodarzy = gole_gospodarzy + NEW.gole WHERE NEW.id_meczu = id_meczu
                                         AND NEW.id_druzyny = (SELECT id_gospodarzy FROM Mecz WHERE id_meczu = NEW.id_meczu);
+                                        UPDATE Statystyki SET gole_gospodarzy = gole_gospodarzy + NEW.samoboje WHERE NEW.id_meczu = id_meczu
+                                        AND NEW.id_druzyny = (SELECT id_gosci FROM Mecz WHERE id_meczu = NEW.id_meczu);
                                     END;");
 
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS update_goals AFTER UPDATE ON Strzelec
                                     BEGIN 
                                         UPDATE Statystyki SET gole_gosci = gole_gosci + NEW.gole - OLD.gole WHERE NEW.id_meczu = id_meczu 
                                         AND NEW.id_druzyny = (SELECT id_gosci FROM Mecz WHERE id_meczu = NEW.id_meczu);
+                                        UPDATE Statystyki SET gole_gosci = gole_gosci + NEW.gole - OLD.samoboje WHERE NEW.id_meczu = id_meczu 
+                                        AND NEW.id_druzyny = (SELECT id_gospodarzy FROM Mecz WHERE id_meczu = NEW.id_meczu);
+
                                         UPDATE Statystyki SET gole_gospodarzy = gole_gospodarzy + NEW.gole - OLD.gole WHERE NEW.id_meczu = id_meczu
                                         AND NEW.id_druzyny = (SELECT id_gospodarzy FROM Mecz WHERE id_meczu = NEW.id_meczu);
+                                        UPDATE Statystyki SET gole_gospodarzy = gole_gospodarzy + NEW.gole - OLD.samoboje WHERE NEW.id_meczu = id_meczu
+                                        AND NEW.id_druzyny = (SELECT id_gosci FROM Mecz WHERE id_meczu = NEW.id_meczu);
                                     END;");
 
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS delete_goals AFTER DELETE ON Strzelec
                                     BEGIN 
                                         UPDATE Statystyki SET gole_gosci = gole_gosci - OLD.gole WHERE OLD.id_meczu = id_meczu 
                                         AND OLD.id_druzyny = (SELECT id_gosci FROM Mecz WHERE id_meczu = OLD.id_meczu);
+                                        UPDATE Statystyki SET gole_gosci = gole_gosci - OLD.samoboje WHERE OLD.id_meczu = id_meczu 
+                                        AND OLD.id_druzyny = (SELECT id_gospodarzy FROM Mecz WHERE id_meczu = OLD.id_meczu);
+
                                         UPDATE Statystyki SET gole_gospodarzy = gole_gospodarzy - OLD.gole WHERE OLD.id_meczu = id_meczu
                                         AND OLD.id_druzyny = (SELECT id_gospodarzy FROM Mecz WHERE id_meczu = OLD.id_meczu);
+                                        UPDATE Statystyki SET gole_gospodarzy = gole_gospodarzy - OLD.samoboje WHERE OLD.id_meczu = id_meczu
+                                        AND OLD.id_druzyny = (SELECT id_gosci FROM Mecz WHERE id_meczu = OLD.id_meczu);
+
+                                        -- Jeśli nie ma już strzelców w tym meczu — ustaw gole na NULL
+                                        UPDATE Statystyki
+                                        SET gole_gosci = NULL, gole_gospodarzy = NULL
+                                        WHERE id_meczu = OLD.id_meczu
+                                        AND NOT EXISTS (SELECT 1 FROM Strzelec WHERE id_meczu = OLD.id_meczu);
                                     END;");
         }
 

@@ -24,10 +24,12 @@ namespace LaLiga.Models
         public string? kraj_pochodzenia { get; set; }
         [Display(Name = "Kontuzjowany")]
         public bool injured { get; set; }
+        [Display(Name = "APIid")]
+        public int id { get; set; }
         public ICollection<Strzelec>? strzelcy { get; set; }
 
 
-        public Zawodnik(int id_druzyny, int numer, string imie, string nazwisko, string pozycja, int wiek, string kraj_pochodzenia, bool injured)
+        public Zawodnik(int id_druzyny, int numer, string imie, string nazwisko, string pozycja, int wiek, string kraj_pochodzenia, bool injured, int id)
         {
             this.id_druzyny = id_druzyny;
             this.numer = numer;
@@ -37,15 +39,17 @@ namespace LaLiga.Models
             this.wiek = wiek;
             this.kraj_pochodzenia = kraj_pochodzenia;
             this.injured = injured;
+            this.id = id;
         }
 
-        public Zawodnik(int id_druzyny, int numer, string imie, string pozycja, int wiek)
+        public Zawodnik(int id_druzyny, int numer, string imie, string pozycja, int wiek, int id)
         {
             this.id_druzyny = id_druzyny;
             this.numer = numer;
             this.imie = imie;
             this.pozycja = pozycja;
             this.wiek = wiek;
+            this.id = id;
 
             injured = false;
         }

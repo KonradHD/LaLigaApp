@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LaLiga")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9070b5f199caaa3c183f137873787d0179b7289a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b996d9f8ffd6fed096528ab6ff5350e1442cafd")]
 [assembly: System.Reflection.AssemblyProductAttribute("LaLiga")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LaLiga")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,7 @@
+using System.IdentityModel.Tokens.Jwt;
 using System.Text.Json;
 using LaLiga.APIs.Match;
+using LaLiga.APIs.Shooter;
 using LaLiga.Models;
 
 public class APIManager
@@ -85,12 +87,13 @@ public class APIManager
                     PlayerInfo? playerInfo = playersInfo.FirstOrDefault(p => p.id == player.id);
                     if (playerInfo != null)
                     {
-                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, playerInfo.firstname, playerInfo.lastname, player.position, player.age, playerInfo.nationality, playerInfo.injured);
+                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, playerInfo.firstname, playerInfo.lastname, player.position,
+                                                        player.age, playerInfo.nationality, playerInfo.injured, player.id);
                         zawodnicy.Add(zawodnik);
                     }
                     else
                     {
-                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, player.name, player.position, player.age);
+                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, player.name, player.position, player.age, player.id);
                         zawodnicy.Add(zawodnik);
                     }
                 }
@@ -127,5 +130,62 @@ public class APIManager
             }
         }
         return mecze;
+    }
+
+    public List<Strzelec> getShootersData(string filePath, int IdMeczu)
+    {
+        string json = File.ReadAllText(filePath);
+        List<Strzelec> strzelcy = new List<Strzelec>();
+
+        ShooterRoot? root = JsonSerializer.Deserialize<ShooterRoot>(json);
+        if (root != null)
+        {
+            List<Event> events = root.response[0].events;
+            foreach (var ev in events)
+            {
+                Strzelec? oldStrzelec = strzelcy.FirstOrDefault(s => s.id_meczu == IdMeczu && s.APIid == ev.player.id);
+                if (ev.detail.Equals("Own Goal"))
+                {
+                    if (oldStrzelec == null)
+                    {
+                        Strzelec strzelec = new Strzelec(ev.team.id, IdMeczu, ev.player.id);
+                        strzelec.AddOwnGoal();
+                        strzelcy.Add(strzelec);
+                    }
+                    else
+                    {
+                        oldStrzelec.AddOwnGoal();
+                    }
+                }
+                else if (ev.detail.Equals("Normal Goal") || (ev.type.Equals("Goal") && ev.detail.Equals("Penalty")))
+                {
+                    if (oldStrzelec == null)
+                    {
+                        Strzelec strzelec = new Strzelec(ev.team.id, IdMeczu, ev.player.id);
+                        strzelec.AddGoal();
+                        strzelcy.Add(strzelec);
+                    }
+                    else
+                    {
+                        oldStrzelec.AddGoal();
+                    }
+                    if (ev.assist.id != null)
+                    {
+                        Strzelec? oldAssister = strzelcy.FirstOrDefault(s => s.id_meczu == IdMeczu && s.APIid == ev.assist.id);
+                        if (oldAssister == null)
+                        {
+                            Strzelec assister = new Strzelec(ev.team.id, IdMeczu, ev.assist.id ?? 0);
+                            assister.AddAssist();
+                            strzelcy.Add(assister);
+                        }
+                        else
+                        {
+                            oldAssister.AddAssist();
+                        }
+                    }
+                }
+            }
+        }
+        return strzelcy;
     }
 }
