@@ -22,7 +22,7 @@ namespace LaLiga.Models
         public Statystyki? stats { get; set; }
         public ICollection<Strzelec>? strzelcy { get; set; }
 
-        public Mecz(int id_meczu, int id_gosci, int id_gospodarzy, DateTime termin, string sedzia)
+        public Mecz(int id_meczu, int id_gospodarzy, int id_gosci, DateTime termin, string sedzia)
         {
             this.id_meczu = id_meczu;
             this.id_gosci = id_gosci;
