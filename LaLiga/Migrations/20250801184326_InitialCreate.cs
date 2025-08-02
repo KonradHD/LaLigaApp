@@ -206,30 +206,30 @@ namespace LaLiga.Migrations
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci - OLD.gole_gosci WHERE id_druzyny = 
                                         (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu) 
-                                        AND NOT EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gosci IS NULL);
+                                        AND NEW.gole_gosci IS NOT NULL AND OLD.gole_gosci IS NOT NULL;
 
                                         UPDATE Druzyna SET gole = gole - OLD.gole_gosci WHERE id_druzyny = 
                                         (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu) 
-                                        AND EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gosci IS NULL);
+                                        AND NEW.gole_gosci IS NULL AND OLD.gole_gosci IS NOT NULL;
 
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci WHERE id_druzyny = 
                                         (SELECT m.id_gosci from Mecz m WHERE m.id_meczu = NEW.id_meczu) 
-                                        AND EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND OLD.gole_gosci IS NULL);
+                                        AND OLD.gole_gosci IS NULL AND NEW.gole_gosci IS NOT NULL;
                                     END;");
 
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS updated_hosts_goals AFTER UPDATE ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gospodarzy - OLD.gole_gospodarzy WHERE id_druzyny = 
                                         (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu)
-                                        AND NOT EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gospodarzy IS NULL);
+                                        AND NEW.gole_gospodarzy IS NOT NULL AND OLD.gole_gospodarzy IS NOT NULL;
 
                                         UPDATE Druzyna SET gole = gole - OLD.gole_gospodarzy WHERE id_druzyny = 
                                         (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu)
-                                        AND EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND NEW.gole_gospodarzy IS NULL);
-
+                                        AND NEW.gole_gospodarzy IS NULL AND OLD.gole_gospodarzy IS NOT NULL;
+                                        
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gospodarzy WHERE id_druzyny = 
                                         (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = NEW.id_meczu)
-                                        AND EXISTS (SELECT 1 FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu AND OLD.gole_gospodarzy IS NULL);
+                                        AND OLD.gole_gospodarzy IS NULL AND NEW.gole_gospodarzy IS NOT NULL;
                                     END;");
 
 
@@ -239,9 +239,11 @@ namespace LaLiga.Migrations
                                             CASE 
                                                 WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci > OLD.gole_gospodarzy THEN -3
                                                 WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci = OLD.gole_gospodarzy THEN -1
-                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL OR OLD.gole_gosci < OLD.gole_gospodarzy) THEN 3
-                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL OR OLD.gole_gosci = OLD.gole_gospodarzy) THEN 2
-                                                WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL OR OLD.gole_gosci < OLD.gole_gospodarzy) THEN 1
+                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL) THEN 3
+                                                WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL) THEN 1
+                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN 3
+                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci = OLD.gole_gospodarzy THEN 2
+                                                WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN 1
                                                 WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND OLD.gole_gosci > OLD.gole_gospodarzy THEN -2
                                                 WHEN NEW.gole_gosci < NEW.gole_gospodarzy AND OLD.gole_gosci > OLD.gole_gospodarzy THEN -3
                                                 WHEN NEW.gole_gosci < NEW.gole_gospodarzy AND OLD.gole_gosci = OLD.gole_gospodarzy THEN -1
@@ -256,9 +258,11 @@ namespace LaLiga.Migrations
                                             CASE
                                                 WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci < OLD.gole_gospodarzy THEN -3
                                                 WHEN (NEW.gole_gosci IS NULL OR NEW.gole_gospodarzy IS NULL) AND OLD.gole_gosci = OLD.gole_gospodarzy THEN -1
-                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL OR OLD.gole_gosci < OLD.gole_gospodarzy) THEN -3
-                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL OR OLD.gole_gosci = OLD.gole_gospodarzy) THEN -1
-                                                WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL OR OLD.gole_gosci < OLD.gole_gospodarzy) THEN -2
+                                                WHEN NEW.gole_gosci < NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL) THEN 3
+                                                WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND (OLD.gole_gosci IS NULL OR OLD.gole_gospodarzy IS NULL) THEN 1
+                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN -3
+                                                WHEN NEW.gole_gosci > NEW.gole_gospodarzy AND OLD.gole_gosci = OLD.gole_gospodarzy THEN -1
+                                                WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND OLD.gole_gosci < OLD.gole_gospodarzy THEN -2
                                                 WHEN NEW.gole_gosci = NEW.gole_gospodarzy AND OLD.gole_gosci > OLD.gole_gospodarzy THEN 1
                                                 WHEN NEW.gole_gosci < NEW.gole_gospodarzy AND OLD.gole_gosci > OLD.gole_gospodarzy THEN 3
                                                 WHEN NEW.gole_gosci < NEW.gole_gospodarzy AND OLD.gole_gosci = OLD.gole_gospodarzy THEN 2
