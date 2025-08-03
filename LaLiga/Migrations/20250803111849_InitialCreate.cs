@@ -19,8 +19,8 @@ namespace LaLiga.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     nazwa_druzyny = table.Column<string>(type: "TEXT", nullable: false),
                     stadion = table.Column<string>(type: "TEXT", nullable: false),
-                    punkty = table.Column<int>(type: "INTEGER", nullable: true, defaultValue: 0),
-                    gole = table.Column<int>(type: "INTEGER", nullable: true, defaultValue: 0)
+                    punkty = table.Column<int>(type: "INTEGER", nullable: false, defaultValue: 0),
+                    gole = table.Column<int>(type: "INTEGER", nullable: false, defaultValue: 0)
                 },
                 constraints: table =>
                 {
@@ -165,7 +165,6 @@ namespace LaLiga.Migrations
                 name: "IX_Strzelec_id_meczu",
                 table: "Strzelec",
                 column: "id_meczu");
-
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS new_guests_goals AFTER INSERT ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci WHERE id_druzyny = 
@@ -309,14 +308,18 @@ namespace LaLiga.Migrations
                                         WHERE id_druzyny = (SELECT m.id_gospodarzy from Mecz m WHERE m.id_meczu = OLD.id_meczu);
                                     END;");
 
-            migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS deleted_match_goals AFTER DELETE ON Mecz
-                                    BEGIN 
-                                        UPDATE Druzyna SET gole = gole - (SELECT gole_gosci FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu) WHERE id_druzyny = OLD.id_gosci;
-                                        UPDATE Druzyna SET gole = gole - (SELECT gole_gospodarzy FROM Statystyki s WHERE s.id_meczu = OLD.id_meczu) WHERE id_druzyny = OLD.id_gospodarzy;
+
+            migrationBuilder.Sql(@"CREATE TRIGGER deleted_match_goals BEFORE DELETE ON Mecz
+                                    BEGIN
+                                        UPDATE Druzyna SET gole = IFNULL(gole, 0) - IFNULL((SELECT gole_gosci FROM Statystyki WHERE id_meczu = OLD.id_meczu), 0)
+                                        WHERE id_druzyny = OLD.id_gosci;
+
+                                        UPDATE Druzyna SET gole = IFNULL(gole, 0) - IFNULL((SELECT gole_gospodarzy FROM Statystyki WHERE id_meczu = OLD.id_meczu), 0)
+                                        WHERE id_druzyny = OLD.id_gospodarzy;
                                     END;");
 
 
-            migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS deleted_match_points AFTER DELETE ON Mecz
+            migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS deleted_match_points BEFORE DELETE ON Mecz
                                     BEGIN 
                                         UPDATE Druzyna SET punkty = punkty + 
                                             CASE 

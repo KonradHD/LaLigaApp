@@ -15,7 +15,7 @@ namespace LaLiga.Models
         public Druzyna? gospodarze { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Termin")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime termin { get; set; }
         [Display(Name = "Sędzia")]
         public string sedzia { get; set; }

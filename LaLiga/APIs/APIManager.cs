@@ -138,9 +138,10 @@ public class APIManager
                 for (int i = 0; i < fixtures.Count(); i++)
                 {
                     string dateStr = fixtures[i].date.Substring(0, fixtures[i].date.IndexOf("T"));
-                    System.Console.WriteLine(dateStr);
+                    string timeStr = fixtures[i].date.Substring(fixtures[i].date.IndexOf("T") + 1, 5);
+                    System.Console.WriteLine(timeStr);
                     DateTime date;
-                    if (DateTime.TryParse(dateStr, out date))
+                    if (DateTime.TryParse($"{dateStr} {timeStr}", out date))
                     {
                         Mecz mecz = new Mecz(fixtures[i].id, home[i].id, away[i].id, date, fixtures[i].referee);
                         mecze.Add(mecz);
