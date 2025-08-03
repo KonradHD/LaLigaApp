@@ -8,13 +8,15 @@ namespace LaLiga.Data
     public class DatabaseInitializer
     {
         private static APIManager apiManager = new APIManager();
+        private static int year = 2024;
+
         public static async Task Initialize(LaLigaContext context)
         {
             context.Database.EnsureCreated();
 
             if (!context.Druzyna.Any())
             {
-                await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/teams?league=140&season=2024&country=Spain", "APIs/Data/teamData.txt");
+                await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/teams?league=140&season={year}&country=Spain", "APIs/Data/teamData.txt");
                 List<Druzyna> druzyny = apiManager.getTeamsData("APIs/Data/teamData.txt");
 
                 context.Druzyna.AddRange(druzyny);
@@ -33,7 +35,7 @@ namespace LaLiga.Data
                         string playerInfoDataPath = $"APIs/Data/playerInfoData{id}.txt";
 
                         await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/players/squads?team={id}", playerDataPath);
-                        await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/players?team={id}&league=140&season=2024", playerInfoDataPath);
+                        await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/players?team={id}&league=140&season={year}", playerInfoDataPath);
                         List<Zawodnik> zawodnicy = apiManager.getPlayersData(playerDataPath, playerInfoDataPath, id);
                         context.Zawodnik.AddRange(zawodnicy);
                     }
@@ -58,14 +60,14 @@ namespace LaLiga.Data
                     rola = "admin"
                 };
                 context.Uzytkownik.Add(admin);
-                context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
 
             if (!context.Mecz.Any())
             {
                 try
                 {
-                    await apiManager.createData("https://api-football-v1.p.rapidapi.com/v3/fixtures?league=140&season=2024", "APIs/Data/matchesData.txt");
+                    await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/fixtures?league=140&season={year}", "APIs/Data/matchesData.txt");
                     List<Mecz> mecze = apiManager.getMatchesData("APIs/Data/matchesData.txt");
                     context.Mecz.AddRange(mecze);
                 }
@@ -76,53 +78,13 @@ namespace LaLiga.Data
                 await context.SaveChangesAsync();
             }
 
-            /* if (!context.Statystyki.Any())
-            {
-                var statystykiList = new List<Statystyki>
-                {
-                    new Statystyki { id_meczu = 1, gole_gospodarzy = 2, gole_gosci = 1, strzaly_gospodarzy = 12, strzaly_gosci = 6 },
-                    new Statystyki { id_meczu = 2, gole_gospodarzy = 0, gole_gosci = 0, strzaly_gospodarzy = 7, strzaly_gosci = 5 },
-                    new Statystyki { id_meczu = 3, gole_gospodarzy = 3, gole_gosci = 2, strzaly_gospodarzy = 15, strzaly_gosci = 11 },
-                    new Statystyki { id_meczu = 4, gole_gospodarzy = 1, gole_gosci = 1, strzaly_gospodarzy = 9, strzaly_gosci = 8 },
-                    new Statystyki { id_meczu = 5, gole_gospodarzy = 0, gole_gosci = 2, strzaly_gospodarzy = 4, strzaly_gosci = 13 },
-                    new Statystyki { id_meczu = 6, gole_gospodarzy = 4, gole_gosci = 0, strzaly_gospodarzy = 18, strzaly_gosci = 3 },
-                    new Statystyki { id_meczu = 7, gole_gospodarzy = 2, gole_gosci = 2, strzaly_gospodarzy = 10, strzaly_gosci = 10 },
-                    new Statystyki { id_meczu = 8, gole_gospodarzy = 1, gole_gosci = 3, strzaly_gospodarzy = 6, strzaly_gosci = 14 },
-                    new Statystyki { id_meczu = 9, gole_gospodarzy = 0, gole_gosci = 1, strzaly_gospodarzy = 5, strzaly_gosci = 8 },
-                    new Statystyki { id_meczu = 10, gole_gospodarzy = 3, gole_gosci = 1, strzaly_gospodarzy = 16, strzaly_gosci = 9 },
-
-                    new Statystyki { id_meczu = 11, gole_gospodarzy = 2, gole_gosci = 0, strzaly_gospodarzy = 11, strzaly_gosci = 4 },
-                    new Statystyki { id_meczu = 12, gole_gospodarzy = 0, gole_gosci = 2, strzaly_gospodarzy = 3, strzaly_gosci = 12 },
-                    new Statystyki { id_meczu = 13, gole_gospodarzy = 1, gole_gosci = 2, strzaly_gospodarzy = 7, strzaly_gosci = 11 },
-                    new Statystyki { id_meczu = 14, gole_gospodarzy = 1, gole_gosci = 0, strzaly_gospodarzy = 8, strzaly_gosci = 5 },
-                    new Statystyki { id_meczu = 15, gole_gospodarzy = 2, gole_gosci = 3, strzaly_gospodarzy = 10, strzaly_gosci = 15 },
-                    new Statystyki { id_meczu = 16, gole_gospodarzy = 4, gole_gosci = 2, strzaly_gospodarzy = 17, strzaly_gosci = 13 },
-                    new Statystyki { id_meczu = 17, gole_gospodarzy = 0, gole_gosci = 0, strzaly_gospodarzy = 6, strzaly_gosci = 6 },
-                    new Statystyki { id_meczu = 18, gole_gospodarzy = 2, gole_gosci = 1, strzaly_gospodarzy = 12, strzaly_gosci = 9 },
-                    new Statystyki { id_meczu = 19, gole_gospodarzy = 1, gole_gosci = 1, strzaly_gospodarzy = 8, strzaly_gosci = 8 },
-                    new Statystyki { id_meczu = 20, gole_gospodarzy = 3, gole_gosci = 0, strzaly_gospodarzy = 14, strzaly_gosci = 4 },
-
-                    new Statystyki { id_meczu = 21, gole_gospodarzy = 1, gole_gosci = 2, strzaly_gospodarzy = 9, strzaly_gosci = 13 },
-                    new Statystyki { id_meczu = 22, gole_gospodarzy = 2, gole_gosci = 2, strzaly_gospodarzy = 13, strzaly_gosci = 13 },
-                    new Statystyki { id_meczu = 23, gole_gospodarzy = 0, gole_gosci = 1, strzaly_gospodarzy = 4, strzaly_gosci = 7 },
-                    new Statystyki { id_meczu = 24, gole_gospodarzy = 1, gole_gosci = 3, strzaly_gospodarzy = 10, strzaly_gosci = 16 },
-                    new Statystyki { id_meczu = 25, gole_gospodarzy = 2, gole_gosci = 0, strzaly_gospodarzy = 11, strzaly_gosci = 5 },
-                    new Statystyki { id_meczu = 26, gole_gospodarzy = 3, gole_gosci = 2, strzaly_gospodarzy = 15, strzaly_gosci = 10 },
-                    new Statystyki { id_meczu = 27, gole_gospodarzy = 0, gole_gosci = 4, strzaly_gospodarzy = 5, strzaly_gosci = 17 },
-                    new Statystyki { id_meczu = 28, gole_gospodarzy = 1, gole_gosci = 1, strzaly_gospodarzy = 9, strzaly_gosci = 9 },
-                    new Statystyki { id_meczu = 29, gole_gospodarzy = 2, gole_gosci = 1, strzaly_gospodarzy = 13, strzaly_gosci = 6 },
-                    new Statystyki { id_meczu = 30, gole_gospodarzy = 3, gole_gosci = 3, strzaly_gospodarzy = 18, strzaly_gosci = 18 },
-                };
-
-                context.Statystyki.AddRange(statystykiList);
-                context.SaveChangesAsync();
-            } */
-
+            Dictionary<int, int> matchHomeId = await context.Mecz.Select(m => new { m.id_meczu, m.id_gospodarzy }).Take(10).ToDictionaryAsync(m => m.id_meczu, m => m.id_gospodarzy);
             if (!context.Strzelec.Any())
             {
 
-                List<int> ids = await context.Mecz.Select(d => d.id_meczu).Take(2).ToListAsync();
-                foreach (int id in ids)
+                Dictionary<int, int> playersNumber = await context.Zawodnik.Select(z => new { z.APIid, z.numer }).ToDictionaryAsync(z => z.APIid, z => z.numer);
+                int biggestNumber = playersNumber.Values.Max();
+                foreach (int id in matchHomeId.Keys)
                 {
                     try
                     {
@@ -133,8 +95,25 @@ namespace LaLiga.Data
                         List<Strzelec> strzelcy = apiManager.getShootersData(shooterDataPath, id);
                         foreach (Strzelec strzelec in strzelcy)
                         {
-                            Zawodnik player = await context.Zawodnik.Where(z => z.id == strzelec.APIid).FirstAsync();
-                            strzelec.SetNumber(player.numer);
+                            int number;
+                            if (playersNumber.TryGetValue(strzelec.APIid, out number))
+                            {
+                                strzelec.SetNumber(number);
+                            }
+                            else
+                            {
+                                number = biggestNumber;
+
+                                string onePlayerDataPath = $"APIs/Data/onePlayerData{strzelec.APIid}.txt";
+                                await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/players?id={strzelec.APIid}&season={year}", onePlayerDataPath);
+                                Zawodnik zawodnik = apiManager.getOnePlayerData(onePlayerDataPath, strzelec.id_druzyny, number, strzelec.APIid);
+                                context.Zawodnik.Add(zawodnik);
+                                await context.SaveChangesAsync();
+
+                                strzelec.SetNumber(zawodnik.numer);
+                                biggestNumber++;
+                            }
+                            System.Console.WriteLine($"{strzelec.APIid}: {strzelec.numer}");
                         }
                         context.Strzelec.AddRange(strzelcy);
                     }
@@ -145,6 +124,26 @@ namespace LaLiga.Data
                 }
                 await context.SaveChangesAsync();
             }
+
+
+            foreach (var entry in matchHomeId)
+            {
+                string statisticsPath = $"APIs/Data/statsData{entry.Key}.txt";
+                try
+                {
+                    await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/fixtures/statistics?fixture={entry.Key}", statisticsPath);
+                    Statystyki stat = apiManager.getStatisticsData(statisticsPath, entry.Key, entry.Value);
+                    context.Entry(stat).Property(s => s.strzaly_gospodarzy).IsModified = true;
+                    context.Entry(stat).Property(s => s.strzaly_gosci).IsModified = true;
+                    context.Entry(stat).Property(s => s.posiadanie_pilki_gospodarzy).IsModified = true;
+                    context.Entry(stat).Property(s => s.posiadanie_pilki_gosci).IsModified = true;
+                }
+                catch (Exception e)
+                {
+                    System.Console.WriteLine($"BLAD PRZY STATYSTYKACH Z MECZU {entry.Key}: {e.Message}");
+                }
+            }
+            await context.SaveChangesAsync();
         }
     }
 }

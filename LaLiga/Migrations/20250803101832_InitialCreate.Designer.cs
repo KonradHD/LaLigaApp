@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(LaLigaContext))]
-    [Migration("20250801184326_InitialCreate")]
+    [Migration("20250803101832_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -86,6 +86,12 @@ namespace LaLiga.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("gole_gospodarzy")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("posiadanie_pilki_gosci")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("posiadanie_pilki_gospodarzy")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("strzaly_gosci")
@@ -173,11 +179,10 @@ namespace LaLiga.Migrations
                     b.Property<int>("numer")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("id")
+                    b.Property<int>("APIid")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("imie")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("injured")

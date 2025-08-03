@@ -80,13 +80,13 @@ namespace LaLiga.Migrations
                 {
                     id_druzyny = table.Column<int>(type: "INTEGER", nullable: false),
                     numer = table.Column<int>(type: "INTEGER", nullable: false),
-                    imie = table.Column<string>(type: "TEXT", nullable: false),
+                    imie = table.Column<string>(type: "TEXT", nullable: true),
                     nazwisko = table.Column<string>(type: "TEXT", nullable: true),
                     pozycja = table.Column<string>(type: "TEXT", nullable: true),
                     wiek = table.Column<int>(type: "INTEGER", nullable: false),
                     kraj_pochodzenia = table.Column<string>(type: "TEXT", nullable: true),
                     injured = table.Column<bool>(type: "INTEGER", nullable: false),
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                    APIid = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,7 +107,9 @@ namespace LaLiga.Migrations
                     gole_gospodarzy = table.Column<int>(type: "INTEGER", nullable: true),
                     gole_gosci = table.Column<int>(type: "INTEGER", nullable: true),
                     strzaly_gospodarzy = table.Column<int>(type: "INTEGER", nullable: true),
-                    strzaly_gosci = table.Column<int>(type: "INTEGER", nullable: true)
+                    strzaly_gosci = table.Column<int>(type: "INTEGER", nullable: true),
+                    posiadanie_pilki_gospodarzy = table.Column<int>(type: "INTEGER", nullable: true),
+                    posiadanie_pilki_gosci = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {

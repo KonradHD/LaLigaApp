@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text.Json;
 using LaLiga.APIs.Match;
 using LaLiga.APIs.Shooter;
+using LaLiga.APIs.Statistics;
 using LaLiga.Models;
 
 public class APIManager
@@ -85,17 +86,35 @@ public class APIManager
                 if (player.number != null && zawodnicy.FirstOrDefault(z => z.numer == player.number) == null)
                 {
                     PlayerInfo? playerInfo = playersInfo.FirstOrDefault(p => p.id == player.id);
+                    List<string> names = player.name.Split(" ").ToList();
                     if (playerInfo != null)
                     {
-                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, playerInfo.firstname, playerInfo.lastname, player.position,
+                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, names[0], null, player.position,
                                                         player.age, playerInfo.nationality, playerInfo.injured, player.id);
+                        if (names.Count() == 2)
+                        {
+                            zawodnik.SetLastName(names[1]);
+                        }
+                        else if (names.Count() > 2)
+                        {
+                            zawodnik.SetLastName(names[1] + " " + names[2]);
+                        }
                         zawodnicy.Add(zawodnik);
                     }
                     else
                     {
-                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, player.name, player.position, player.age, player.id);
+                        Zawodnik zawodnik = new Zawodnik(idDruzyny, player.number ?? 0, names[0], player.position, player.age, player.id);
+                        if (names.Count() == 2)
+                        {
+                            zawodnik.SetLastName(names[1]);
+                        }
+                        else if (names.Count() > 2)
+                        {
+                            zawodnik.SetLastName(names[1] + " " + names[2]);
+                        }
                         zawodnicy.Add(zawodnik);
                     }
+
                 }
             }
         }
@@ -187,5 +206,64 @@ public class APIManager
             }
         }
         return strzelcy;
+    }
+
+    public Statystyki getStatisticsData(string filePath, int idMeczu, int idGospodarzy)
+    {
+        string json = File.ReadAllText(filePath);
+        Statystyki statystyka = new Statystyki(idMeczu);
+
+        RootStats? rootStats = JsonSerializer.Deserialize<RootStats>(json);
+        if (rootStats != null)
+        {
+            List<int> teamIds = rootStats.response.Select(w => w.team.id).ToList();
+            List<List<Stats>> stats = rootStats.response.Select(w => w.statistics).ToList();
+            for (int i = 0; i < 2; i++)
+            {
+                Stats? totalShots = stats[i].FirstOrDefault(s => s.type == "Total Shots");
+                Stats? ballPossession = stats[i].FirstOrDefault(s => s.type == "Ball Possession");
+                if (teamIds[i] == idGospodarzy)
+                {
+                    if (totalShots?.value != null)
+                    {
+                        statystyka.SetHomeShoots(int.Parse(totalShots.value.ToString()));
+                    }
+                    statystyka.SetHomeBallPossession(int.Parse(ballPossession.value.ToString().Remove(ballPossession.value.ToString().Length - 1)));
+                }
+                else
+                {
+                    statystyka.SetAwayShoots(int.Parse(totalShots.value.ToString()));
+                    statystyka.SetAwayBallPossession(int.Parse(ballPossession.value.ToString().Remove(ballPossession.value.ToString().Length - 1)));
+                }
+            }
+        }
+        return statystyka;
+    }
+
+    public Zawodnik getOnePlayerData(string filePath, int idDruzyny, int number, int APIid)
+    {
+        Zawodnik zawodnik = new Zawodnik(idDruzyny, number, APIid);
+
+        string json = File.ReadAllText(filePath);
+        RootPlayerInfo? root = JsonSerializer.Deserialize<RootPlayerInfo>(json);
+        if (root != null)
+        {
+            PlayerInfo player = root.response[0].player;
+            List<string> names = player.name.Split(" ").ToList();
+            zawodnik.SetAge(player.age)
+                    .SetNationality(player.nationality)
+                    .SetInjured(player.injured)
+                    .SetFirstName(names[0]);
+
+            if (names.Count() == 2)
+            {
+                zawodnik.SetLastName(names[1]);
+            }
+            else if (names.Count() > 2)
+            {
+                zawodnik.SetLastName(names[1] + " " + names[2]);
+            }
+        }
+        return zawodnik;
     }
 }

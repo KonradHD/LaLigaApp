@@ -10,7 +10,7 @@ namespace LaLiga.Models
         [Display(Name = "Numer")]
         public int numer { get; set; }
         [Display(Name = "Imię")]
-        public string imie { get; set; }
+        public string? imie { get; set; }
         [Display(Name = "Nazwisko")]
         [DisplayFormat(NullDisplayText = "Brak")]
         public string? nazwisko { get; set; }
@@ -25,11 +25,11 @@ namespace LaLiga.Models
         [Display(Name = "Kontuzjowany")]
         public bool injured { get; set; }
         [Display(Name = "APIid")]
-        public int id { get; set; }
+        public int APIid { get; set; }
         public ICollection<Strzelec>? strzelcy { get; set; }
 
 
-        public Zawodnik(int id_druzyny, int numer, string imie, string nazwisko, string pozycja, int wiek, string kraj_pochodzenia, bool injured, int id)
+        public Zawodnik(int id_druzyny, int numer, string imie, string? nazwisko, string pozycja, int wiek, string kraj_pochodzenia, bool injured, int APIid)
         {
             this.id_druzyny = id_druzyny;
             this.numer = numer;
@@ -39,19 +39,56 @@ namespace LaLiga.Models
             this.wiek = wiek;
             this.kraj_pochodzenia = kraj_pochodzenia;
             this.injured = injured;
-            this.id = id;
+            this.APIid = APIid;
         }
 
-        public Zawodnik(int id_druzyny, int numer, string imie, string pozycja, int wiek, int id)
+        public Zawodnik(int id_druzyny, int numer, string imie, string pozycja, int wiek, int APIid)
         {
             this.id_druzyny = id_druzyny;
             this.numer = numer;
             this.imie = imie;
             this.pozycja = pozycja;
             this.wiek = wiek;
-            this.id = id;
+            this.APIid = APIid;
 
             injured = false;
+        }
+
+        public Zawodnik(int id_druzyny, int numer, int APIid)
+        {
+            this.id_druzyny = id_druzyny;
+            this.numer = numer;
+            this.APIid = APIid;
+        }
+
+        public Zawodnik SetAge(int wiek)
+        {
+            this.wiek = wiek;
+            return this;
+        }
+
+        public Zawodnik SetNationality(string kraj_pochodzenia)
+        {
+            this.kraj_pochodzenia = kraj_pochodzenia;
+            return this;
+        }
+
+        public Zawodnik SetInjured(bool injured)
+        {
+            this.injured = injured;
+            return this;
+        }
+
+        public Zawodnik SetFirstName(string imie)
+        {
+            this.imie = imie;
+            return this;
+        }
+
+        public Zawodnik SetLastName(string nazwisko)
+        {
+            this.nazwisko = nazwisko;
+            return this;
         }
     }
 }

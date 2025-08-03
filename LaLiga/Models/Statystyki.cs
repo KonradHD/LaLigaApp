@@ -17,5 +17,35 @@ namespace LaLiga.Models
         public int? strzaly_gospodarzy { get; set; }
         [Display(Name = "Strzały gości")]
         public int? strzaly_gosci { get; set; }
+        [Display(Name = "Posiadanie piłki gospodarzy")]
+        public int? posiadanie_pilki_gospodarzy { get; set; }
+        [Display(Name = "Posiadanie piłki gości")]
+        public int? posiadanie_pilki_gosci { get; set; }
+
+        public Statystyki(int id_meczu)
+        {
+            this.id_meczu = id_meczu;
+        }
+
+        public void SetHomeShoots(int strzaly_gospodarzy)
+        {
+            this.strzaly_gospodarzy = strzaly_gospodarzy;
+        }
+
+        public void SetAwayShoots(int strzaly_gosci)
+        {
+            this.strzaly_gosci = strzaly_gosci;
+        }
+
+        public void SetHomeBallPossession(int posiadanie_pilki_gospodarzy)
+        {
+            this.posiadanie_pilki_gospodarzy = posiadanie_pilki_gospodarzy;
+        }
+
+        public void SetAwayBallPossession(int posiadanie_pilki_gosci)
+        {
+            this.posiadanie_pilki_gosci = posiadanie_pilki_gosci;
+        }
     }
+
 }

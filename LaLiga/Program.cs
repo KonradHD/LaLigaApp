@@ -3,8 +3,17 @@ using Microsoft.Extensions.DependencyInjection;
 using LaLiga.Data;
 using System.Globalization;
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Dodaj logowanie do konsoli i ustaw poziom
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Information);
+
 builder.Services.AddDbContext<LaLigaContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("LaLigaContext") ?? throw new InvalidOperationException("Connection string 'LaLigaContext' not found.")));
+    options
+        .UseSqlite(builder.Configuration.GetConnectionString("LaLigaContext") ?? throw new InvalidOperationException("Connection string 'LaLigaContext' not found."))
+        .EnableSensitiveDataLogging());
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -33,7 +42,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<LaLigaContext>();
-        DatabaseInitializer.Initialize(context);
+        await DatabaseInitializer.Initialize(context);
     }
     catch (Exception ex)
     {

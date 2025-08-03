@@ -85,6 +85,12 @@ namespace LaLiga.Migrations
                     b.Property<int?>("gole_gospodarzy")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("posiadanie_pilki_gosci")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("posiadanie_pilki_gospodarzy")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("strzaly_gosci")
                         .HasColumnType("INTEGER");
 
@@ -170,11 +176,10 @@ namespace LaLiga.Migrations
                     b.Property<int>("numer")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("id")
+                    b.Property<int>("APIid")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("imie")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("injured")
