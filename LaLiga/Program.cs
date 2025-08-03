@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using LaLiga.Data;
 using System.Globalization;
+using LaLiga.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -9,6 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.SetMinimumLevel(LogLevel.Information);
+
+builder.Services.AddHostedService<MyBackgroundService>();
+
+builder.Host.ConfigureHostOptions(options =>
+{
+    options.ShutdownTimeout = TimeSpan.FromSeconds(3); // czas zamykania aplikacja gdy działa BackgroundService
+});
+
 
 builder.Services.AddDbContext<LaLigaContext>(options =>
     options

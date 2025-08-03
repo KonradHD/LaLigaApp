@@ -78,7 +78,11 @@ namespace LaLiga.Data
                 await context.SaveChangesAsync();
             }
 
-            Dictionary<int, int> matchHomeId = await context.Mecz.Select(m => new { m.id_meczu, m.id_gospodarzy }).Take(10).ToDictionaryAsync(m => m.id_meczu, m => m.id_gospodarzy);
+            Dictionary<int, int> matchHomeId = await context.Mecz.Select(m => new { m.id_meczu, m.id_gospodarzy })
+                                                                 .OrderBy(m => m.id_meczu)
+                                                                 //.Skip(10)
+                                                                 .Take(10)
+                                                                 .ToDictionaryAsync(m => m.id_meczu, m => m.id_gospodarzy);
             if (!context.Strzelec.Any())
             {
 
@@ -133,10 +137,14 @@ namespace LaLiga.Data
                 {
                     await apiManager.createData($"https://api-football-v1.p.rapidapi.com/v3/fixtures/statistics?fixture={entry.Key}", statisticsPath);
                     Statystyki stat = apiManager.getStatisticsData(statisticsPath, entry.Key, entry.Value);
-                    context.Entry(stat).Property(s => s.strzaly_gospodarzy).IsModified = true;
-                    context.Entry(stat).Property(s => s.strzaly_gosci).IsModified = true;
-                    context.Entry(stat).Property(s => s.posiadanie_pilki_gospodarzy).IsModified = true;
-                    context.Entry(stat).Property(s => s.posiadanie_pilki_gosci).IsModified = true;
+                    Statystyki? statDb = context.Statystyki.FirstOrDefault(s => s.id_meczu == stat.id_meczu);
+                    if (statDb != null && !stat.Equals(statDb))
+                    {
+                        context.Entry(stat).Property(s => s.strzaly_gospodarzy).IsModified = true;
+                        context.Entry(stat).Property(s => s.strzaly_gosci).IsModified = true;
+                        context.Entry(stat).Property(s => s.posiadanie_pilki_gospodarzy).IsModified = true;
+                        context.Entry(stat).Property(s => s.posiadanie_pilki_gosci).IsModified = true;
+                    }
                 }
                 catch (Exception e)
                 {

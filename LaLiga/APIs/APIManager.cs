@@ -1,9 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Cryptography;
 using System.Text.Json;
 using LaLiga.APIs.Match;
 using LaLiga.APIs.Shooter;
 using LaLiga.APIs.Statistics;
 using LaLiga.Models;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 public class APIManager
 {
@@ -139,7 +141,6 @@ public class APIManager
                 {
                     string dateStr = fixtures[i].date.Substring(0, fixtures[i].date.IndexOf("T"));
                     string timeStr = fixtures[i].date.Substring(fixtures[i].date.IndexOf("T") + 1, 5);
-                    System.Console.WriteLine(timeStr);
                     DateTime date;
                     if (DateTime.TryParse($"{dateStr} {timeStr}", out date))
                     {
@@ -266,5 +267,32 @@ public class APIManager
             }
         }
         return zawodnik;
+    }
+
+    public bool checkNewResults(string sourceFilePath, string destFilePath)
+    {
+        using MD5 md5 = MD5.Create();
+        using FileStream sourceStream = File.OpenRead(sourceFilePath);
+        using FileStream destStream = File.OpenRead(destFilePath);
+
+        byte[] sourceBytes = md5.ComputeHash(sourceStream);
+        byte[] destBytes = md5.ComputeHash(destStream);
+        return !sourceBytes.SequenceEqual(destBytes);
+    }
+
+    public List<Mecz> getChangedMatches(string oldFilePath, string newFilePath)
+    {
+        List<Mecz> oldMatches = getMatchesData(oldFilePath);
+        List<Mecz> newMatches = getMatchesData(newFilePath);
+        List<Mecz> changedMatches = new List<Mecz>();
+
+        foreach (Mecz mecz in newMatches)
+        {
+            if (!oldMatches.Contains(mecz))
+            {
+                changedMatches.Add(mecz);
+            }
+        }
+        return changedMatches;
     }
 }
