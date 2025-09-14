@@ -78,5 +78,6 @@ namespace LaLiga.Data
         public DbSet<Statystyki> Statystyki { get; set; } = default!;
         public DbSet<Uzytkownik> Uzytkownik { get; set; } = default!;
         public DbSet<Zawodnik> Zawodnik { get; set; } = default!;
+        public DbSet<RefreshToken> RefreshTokens { get; set; } = default!;
     }
 }

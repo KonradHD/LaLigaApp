@@ -158,6 +158,7 @@ namespace LaLiga.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("rola")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("wiek")

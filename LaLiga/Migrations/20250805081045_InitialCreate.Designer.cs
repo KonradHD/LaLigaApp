@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaLiga.Migrations
 {
     [DbContext(typeof(LaLigaContext))]
-    [Migration("20250803111849_InitialCreate")]
+    [Migration("20250805081045_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -161,6 +161,7 @@ namespace LaLiga.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("rola")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("wiek")

@@ -8,12 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using LaLiga.Data;
 using LaLiga.Models;
 using LaLiga.Service;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace LaLiga.Controllers
 {
     public class RegisterController : Controller
     {
         private readonly LaLigaContext _context;
+        private readonly PasswordHasher<Uzytkownik> _hasher = new();
 
         public RegisterController(LaLigaContext context)
         {
@@ -35,13 +40,13 @@ namespace LaLiga.Controllers
                 Uzytkownik newUser = new Uzytkownik
                 {
                     email = user.email,
-                    haslo = HashHelper.HashMD5(user.haslo),
                     wiek = user.wiek,
                     imie = user.imie,
                     nazwisko = user.nazwisko,
                     data_dolaczenia = DateTime.Now,
-                    rola = "user"
+                    rola = user.rola
                 };
+                newUser.haslo = _hasher.HashPassword(newUser, user.haslo);
 
                 var users = _context.Uzytkownik.Where(u => u.email.Equals(user.email));
                 if (users.Count() > 0)
@@ -52,7 +57,21 @@ namespace LaLiga.Controllers
 
                 _context.Uzytkownik.Add(newUser);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Login");
+
+                // Auto logowanie po rejestracji:
+                var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, newUser.id.ToString()),
+                new Claim(ClaimTypes.Email, newUser.email),
+                new Claim(ClaimTypes.Role, newUser.rola)
+            };
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                return RedirectToAction("Core", "Login");
             }
             foreach (var modelState in ModelState.Values)
             {

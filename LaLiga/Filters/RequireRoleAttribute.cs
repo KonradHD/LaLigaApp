@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/* using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace LaLiga.Filters
@@ -34,4 +34,4 @@ namespace LaLiga.Filters
             base.OnActionExecuting(context);
         }
     }
-}
+} */

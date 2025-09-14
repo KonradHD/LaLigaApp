@@ -7,12 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LaLiga.Data;
 using LaLiga.Models;
-using LaLiga.Filters;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LaLiga.Controllers
 {
-    [RequireLogin]
-    [RequireRole("admin")]
+    [Authorize(Roles = "admin")]
     public class UzytkownikController : Controller
     {
         private readonly LaLigaContext _context;

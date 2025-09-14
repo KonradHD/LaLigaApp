@@ -3,6 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 using LaLiga.Data;
 using System.Globalization;
 using LaLiga.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using LaLiga.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -24,18 +29,64 @@ builder.Services.AddDbContext<LaLigaContext>(options =>
         .UseSqlite(builder.Configuration.GetConnectionString("LaLigaContext") ?? throw new InvalidOperationException("Connection string 'LaLigaContext' not found."))
         .EnableSensitiveDataLogging());
 
+// Configure JWT Settings
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? "YourSuperSecretKeyHere12345678901234567890");
+
+// Add Authentication Services
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+// Configure Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = true,
+        ValidIssuer = jwtSettings["Issuer"] ?? "LaLigaApp",
+        ValidateAudience = true,
+        ValidAudience = jwtSettings["Audience"] ?? "LaLigaAppUsers",
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    };
+})
+.AddCookie(options =>
+{
+    options.LoginPath = "/Login";
+    options.AccessDeniedPath = "/Login/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    options.SlidingExpiration = true;
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
+});
+
+// Configure Authorization with custom policies
+builder.Services.AddAuthorization(options =>
+{
+    AuthorizationPolicies.ConfigureAuthorizationPolicies(options);
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//Dodanie obsługo sesji
-builder.Services.AddDistributedMemoryCache();
 
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(10);
-    options.Cookie.HttpOnly = true;//plik cookie jest niedostępny przez skrypt po stronie klienta
-    options.Cookie.IsEssential = true;//pliki cookie sesji będą zapisywane dzięki czemu sesje będzie mogła być śledzona podczas nawigacji lub przeładowania strony
-});
+//Dodanie obsługo sesji
+//builder.Services.AddDistributedMemoryCache();
+
+// builder.Services.AddSession(options =>
+// {
+//     options.IdleTimeout = TimeSpan.FromMinutes(10);
+//     options.Cookie.HttpOnly = true;//plik cookie jest niedostępny przez skrypt po stronie klienta
+//     options.Cookie.IsEssential = true;//pliki cookie sesji będą zapisywane dzięki czemu sesje będzie mogła być śledzona podczas nawigacji lub przeładowania strony
+// });
 //KONIEC
 
 var app = builder.Build();
@@ -68,12 +119,17 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
+// Add security headers middleware
+app.UseSecurityHeaders();
+
+app.UseAuthentication(); // <- UWAGA: musi być przed Authorization
 app.UseAuthorization();
 
 app.MapStaticAssets();
-app.UseSession();
+//app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

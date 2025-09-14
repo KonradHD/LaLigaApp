@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/* using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace LaLiga.Filters
@@ -7,12 +7,12 @@ namespace LaLiga.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            var id = context.HttpContext.Session.GetString("id");
-            if (string.IsNullOrEmpty(id))
+            int? id = context.HttpContext.Session.GetInt32("id");
+            if (id == null)
             {
                 context.Result = new RedirectToActionResult("Index", "Login", null);
             }
             base.OnActionExecuting(context);
         }
     }
-}
+} */

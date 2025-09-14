@@ -28,7 +28,7 @@ namespace LaLiga.Models
         [Display(Name = "Data dołączenia")]
         public DateTime data_dolaczenia { get; set; }
         [Display(Name = "Rola")]
-        public string? rola { get; set; }
+        public string rola { get; set; }
 
     }
 }

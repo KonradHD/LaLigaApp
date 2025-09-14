@@ -1,6 +1,7 @@
 using System.Collections;
 using LaLiga.Models;
 using LaLiga.Service;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace LaLiga.Data
@@ -49,16 +50,17 @@ namespace LaLiga.Data
 
             if (!context.Uzytkownik.Any())
             {
+                PasswordHasher<Uzytkownik> _hasher = new();
                 Uzytkownik admin = new Uzytkownik
                 {
                     email = "admin@gmail.com",
-                    haslo = HashHelper.HashMD5("admin"),
                     imie = "Konrad",
                     nazwisko = "Ćwięka",
                     wiek = 21,
                     data_dolaczenia = DateTime.Now,
                     rola = "admin"
                 };
+                admin.haslo = _hasher.HashPassword(admin, "admin");
                 context.Uzytkownik.Add(admin);
                 await context.SaveChangesAsync();
             }

@@ -19,8 +19,8 @@ namespace LaLiga.Service
             string sourceFilePath = "APIs/Data/matchesData.txt";
             while (!stoppingToken.IsCancellationRequested)
             {
-                string data = DateTime.Now.ToString("yyyy-MM-dd_HH-mm");
-                string destFilePath = $"APIs/Data/MatchesData{data}.txt";
+                string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm");
+                string destFilePath = $"APIs/Data/MatchesData{date}.txt";
 
                 try
                 {

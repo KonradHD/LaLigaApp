@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using LaLiga.Models;
-using LaLiga.Filters;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LaLiga.Controllers;
 
@@ -19,8 +19,7 @@ public class HomeController : Controller
         return View();
     }
 
-    [RequireLogin]
-    [RequireRole("admin")]
+    [Authorize(Roles = "admin")]
     public IActionResult Privacy()
     {
         return View();

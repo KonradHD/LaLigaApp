@@ -39,7 +39,7 @@ namespace LaLiga.Migrations
                     imie = table.Column<string>(type: "TEXT", nullable: false),
                     nazwisko = table.Column<string>(type: "TEXT", nullable: false),
                     data_dolaczenia = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    rola = table.Column<string>(type: "TEXT", nullable: true)
+                    rola = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -165,6 +165,7 @@ namespace LaLiga.Migrations
                 name: "IX_Strzelec_id_meczu",
                 table: "Strzelec",
                 column: "id_meczu");
+
             migrationBuilder.Sql(@"CREATE TRIGGER IF NOT EXISTS new_guests_goals AFTER INSERT ON Statystyki
                                     BEGIN
                                         UPDATE Druzyna SET gole = gole + NEW.gole_gosci WHERE id_druzyny = 
@@ -431,7 +432,6 @@ namespace LaLiga.Migrations
             migrationBuilder.Sql("DROP TRIGGER IF EXISTS insert_goals;");
             migrationBuilder.Sql("DROP TRIGGER IF EXISTS update_goals;");
             migrationBuilder.Sql("DROP TRIGGER IF EXISTS delete_goals;");
-
         }
     }
 }

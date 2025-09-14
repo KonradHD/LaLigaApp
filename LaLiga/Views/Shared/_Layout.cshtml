@@ -66,13 +66,13 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
-@{
+@* @{
     var message = Context.Session.GetString("AccessDeniedMessage");
     if (!string.IsNullOrEmpty(message))
     {
         <div class="alert alert-danger">@message</div>
         Context.Session.Remove("AccessDeniedMessage");
     }
-}
+} *@
 
 </html>
