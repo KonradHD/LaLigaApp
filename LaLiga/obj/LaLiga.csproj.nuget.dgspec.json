@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {}
+    "c:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {
+    "c:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
+        "projectUniqueName": "c:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
         "projectName": "LaLiga",
-        "projectPath": "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
+        "projectPath": "c:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\LaLiga.csproj",
         "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\obj\\",
+        "outputPath": "c:\\Users\\Konrad\\OneDrive\\Pulpit\\Studia\\Semestr4\\PZ2\\projekt\\LaLigaApp\\LaLiga\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Konrad\\AppData\\Roaming\\NuGet\\NuGet.Config"
